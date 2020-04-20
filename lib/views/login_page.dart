@@ -37,7 +37,7 @@ class _LoginPageState extends State<LoginPage> {
     SchedulerBinding.instance.addPostFrameCallback((_) {
       if (widget.created){
         Scaffold.of(context).showSnackBar(
-          SnackBar(content: Text("Новый пользователь создан!")),
+          SnackBar(content: Text("Новий користувач створений!")),
         );
       }
     });
@@ -63,7 +63,7 @@ class _LoginPageState extends State<LoginPage> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: <Widget>[
-                        Text('Введите имя пользователя и пароль',
+                        Text("Введіть ім'я користувача та пароль",
                           style: normalTextStyle,
                           textAlign: TextAlign.center,
                         ),
@@ -72,13 +72,13 @@ class _LoginPageState extends State<LoginPage> {
                           style: fieldTextStyle,
                           enabled: true,
                           decoration: AppDecoration(
-                            labelText: "Имя пользователя",
-                            hintText: "Имя пользователя",
+                            labelText: "Ім'я користувача",
+                            hintText: "Ім'я користувача",
                           ),
                           keyboardType: TextInputType.emailAddress,
                           validator: (val) =>
                           val.isEmpty
-                            ? "Введите имя пользователя"
+                            ? "Введіть ім'я користувача"
                             : null,
                           autovalidate: validate,
                           onSaved: (val) => newUser.username = val,
@@ -89,12 +89,12 @@ class _LoginPageState extends State<LoginPage> {
                           enabled: true,
                           decoration: AppDecoration(
                             labelText: 'Пароль',
-                            hintText: 'Пароль для входа'
+                            hintText: 'Пароль для входу'
                           ),
                           obscureText: true,
                           validator: (val) =>
                           val.isEmpty
-                            ? "Введите пароль"
+                            ? "Введіть пароль"
                             : null,
                           autovalidate: validate,
                           onSaved: (val) => newUser.password = val,
@@ -110,14 +110,14 @@ class _LoginPageState extends State<LoginPage> {
                         FlatButton(
                           //text: 'Войти',
                           child: Text(
-                            'Войти'
+                            'Увійти'
                           ),
                           onPressed: () => _submit(),
 
                         ),
                         const SizedBox(height: 35.0),
                         FlatButton(
-                          child: Text('Зарегистрироваться',
+                          child: Text('Зареєструватися',
                             style: TextStyle(fontFamily: 'PT Sans',
                               fontSize: 14.0,
                               color: Colors.black),),
@@ -146,7 +146,7 @@ class _LoginPageState extends State<LoginPage> {
       }
       else{
         setState(() {
-          errorMsg = "Неправильное имя пользователя или пароль.";
+          errorMsg = "Неправильне ім'я користувача або пароль.";
         });
       }
     }

@@ -40,7 +40,7 @@ class _SignupPageState extends State<SignupPage> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: <Widget>[
-                      Text('Введите имя пользователя и пароль',
+                      Text("Введіть ім'я користувача та пароль",
                         style: normalTextStyle,
                         textAlign: TextAlign.center,
                       ),
@@ -49,12 +49,12 @@ class _SignupPageState extends State<SignupPage> {
                         style: fieldTextStyle,
                         enabled: true,
                         decoration: AppDecoration(
-                          labelText: "Имя пользователя",
-                          hintText: "Имя пользователя",
+                          labelText: "Ім'я користувача",
+                          hintText: "Ім'я користувача",
                         ),
                         keyboardType: TextInputType.emailAddress,
-                        validator: (val) => val.isEmpty ? "Введите имя пользователя" :
-                          val.length < 5 ? "Должно содержать минимум 5 символов" : null,
+                        validator: (val) => val.isEmpty ? "Введіть ім'я користувача" :
+                          val.length < 5 ? "Має містити мінімум 5 символів" : null,
                         autovalidate: validate,
                         onSaved: (val) => newUser.username = val,
                       ),
@@ -64,11 +64,11 @@ class _SignupPageState extends State<SignupPage> {
                         enabled: true,
                         decoration: AppDecoration(
                           labelText: 'Пароль',
-                          hintText: 'Пароль для входа'
+                          hintText: 'Пароль для входу'
                         ),
                         obscureText: true,
-                        validator: (val) => val.isEmpty ? "Введите пароль" :
-                        val.length < 5 ? "Должно содержать минимум 5 символов" : null,
+                        validator: (val) => val.isEmpty ? "Введіть пароль" :
+                        val.length < 5 ? "Має містити мінімум 5 символів" : null,
                         autovalidate: validate,
                         onSaved: (val) => newUser.password = val,
                       ),
@@ -82,7 +82,7 @@ class _SignupPageState extends State<SignupPage> {
 
                       FlatButton(
                         child: Text(
-                          'Зарегистрироваться'
+                          'Зареєструватися'
                         ),
                         onPressed: () {
                           _submit();
@@ -106,7 +106,7 @@ class _SignupPageState extends State<SignupPage> {
       }
       else {
         setState(() {
-          errorMsg = "Это имя пользователя занято. Попробуйте другое";
+          errorMsg = "Дане ім'я користувача зайняте. Спробуйте інше";
         });
       }
     }

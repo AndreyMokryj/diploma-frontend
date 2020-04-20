@@ -24,21 +24,21 @@ class MenuWidget extends StatelessWidget{
           ) : Container(),
           ListTile(
             leading: Icon(Icons.home),
-            title: Text("Главная"),
+            title: Text("Головна"),
             onTap: (){
               Navigator.of(context).pushNamed('/');
             },
           ),
           ListTile(
             leading: Icon(Icons.shopping_cart),
-            title: Text("Мои панели"),
+            title: Text("Мої панелі"),
             onTap: (){
               Navigator.of(context).pushNamed('/panels');
             },
           ),
           ListTile(
             leading: Icon(Icons.exit_to_app),
-            title: Text("Выход"),
+            title: Text("Вихід"),
             onTap: (){
               Provider.of<LoginNotifier>(context, listen: false).logOut();
               Navigator.of(context).pushNamed('/login');            },
