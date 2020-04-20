@@ -31,9 +31,9 @@ class MenuWidget extends StatelessWidget{
           ),
           ListTile(
             leading: Icon(Icons.shopping_cart),
-            title: Text("Корзина"),
+            title: Text("Мои панели"),
             onTap: (){
-              Navigator.of(context).pushNamed('/cart');
+              Navigator.of(context).pushNamed('/panels');
             },
           ),
           ListTile(

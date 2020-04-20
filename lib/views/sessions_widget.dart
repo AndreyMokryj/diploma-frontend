@@ -148,7 +148,7 @@ class _SessionsWidgetState extends State<SessionsWidget> {
                           ));
                           if (s) {
                             userPlacesNotifier.clearPlaceIds();
-                            Navigator.of(context).pushNamed('/cart');
+                            Navigator.of(context).pushNamed('/panels');
                           }
                           else {
                             Navigator.of(context).pushReplacementNamed(

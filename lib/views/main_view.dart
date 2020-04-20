@@ -5,7 +5,7 @@ import 'package:flutterappweb/helpers/utils.dart';
 import 'package:flutterappweb/model/movie_model.dart';
 import 'package:flutterappweb/views/menu_widget.dart';
 import 'package:flutterappweb/views/movie_page.dart';
-import 'package:flutterappweb/views/shopping_cart.dart';
+import 'package:flutterappweb/views/panels_list.dart';
 import 'package:flutterappweb/views/movie_list.dart';
 
 class MainView extends StatelessWidget {
@@ -67,8 +67,8 @@ class MainView extends StatelessWidget {
                       child: Builder(
                         builder: (context) {
                           switch (name) {
-                            case 'cart':
-                              return ShoppingCart();
+                            case 'panels':
+                              return PanelsList();
                               break;
                             case 'details':
                               return MoviePage(

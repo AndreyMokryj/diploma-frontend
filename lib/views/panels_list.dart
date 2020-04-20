@@ -6,7 +6,7 @@ import 'package:flutterappweb/model/user_model.dart';
 import 'package:flutterappweb/views/order_widget.dart';
 import 'package:provider/provider.dart';
 
-class ShoppingCart extends StatelessWidget{
+class PanelsList extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     User user = Provider.of<LoginNotifier>(context, listen: false).user;

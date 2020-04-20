@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider.value(
       value: globalLoginNotifier,
       child: MaterialApp(
-        title: 'Кинотеатр FORMAT',
+        title: 'SUNMAX',
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
@@ -31,9 +31,10 @@ class MyApp extends StatelessWidget {
 
 class MainPage extends StatelessWidget {
   final String name;
-  final int movieId;
+//  final int movieId;
 
-  MainPage({Key key, this.name = "home", this.movieId}) : super(key: key);
+//  MainPage({Key key, this.name = "home", this.movieId}) : super(key: key);
+  MainPage({Key key, this.name = "home"}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +48,7 @@ class MainPage extends StatelessWidget {
     if (loggedIn) {
       return MainView(
         name: name,
-        movieId: movieId,
+//        movieId: movieId,
       );
     }
     else {
@@ -63,7 +64,7 @@ Route<dynamic> _getRoute(RouteSettings settings) {
     String id = path.substring(9);
     page = MainPage(
       name: 'details',
-      movieId: int.tryParse(id),
+//      movieId: int.tryParse(id),
     );
   }
   else {
@@ -83,9 +84,9 @@ Route<dynamic> _getRoute(RouteSettings settings) {
         globalLoginNotifier.logOut();
         page = SignupPage();
         break;
-      case '/cart' :
+      case '/panels' :
         page = MainPage(
-          name: 'cart',
+          name: 'panels',
         );
         break;
     }

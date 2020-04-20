@@ -4,7 +4,7 @@ const baseUrl = kReleaseMode ? "https://mavlabs.hopto.org/" : "http://localhost:
 
 const pageNames = {
   'home' : 'Главная',
-  'cart' : 'Корзина',
+  'panels' : 'Мои панели',
 };
 
 const monthNames = {
