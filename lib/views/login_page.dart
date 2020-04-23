@@ -139,9 +139,9 @@ class _LoginPageState extends State<LoginPage> {
     final FormState form = _formKey.currentState;
     if (form.validate()) {
       form.save();
-      bool s = await DBProvider.db.checkUser(newUser);
-      if (s) {
-        Provider.of<LoginNotifier>(context, listen: false).logIn(newUser);
+      User regUser = await DBProvider.db.checkUser(newUser);
+      if (regUser != null) {
+        Provider.of<LoginNotifier>(context, listen: false).logIn(regUser);
         Navigator.of(context).pushNamed('/');
       }
       else{

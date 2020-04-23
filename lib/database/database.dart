@@ -23,10 +23,36 @@ class DBProvider {
     return responseBody;
   }
 
-  Future<bool> checkUser(u.User user) async {
+  Future<u.User> checkUser(u.User user) async {
     final response = await http.post(
       "${baseUrl}users/check/",
       body: jsonEncode(user.toMap()),
+      headers: {
+        'content-type': 'application/json'
+      }
+    );
+
+    final responseBody = jsonDecode(response.body);
+    return u.User.fromMap(responseBody);
+  }
+
+//  Future<bool> checkUser(u.User user) async {
+//    final response = await http.post(
+//      "${baseUrl}users/check/",
+//      body: jsonEncode(user.toMap()),
+//      headers: {
+//        'content-type': 'application/json'
+//      }
+//    );
+//
+//    final responseBody = jsonDecode(response.body);
+//    return responseBody;
+//  }
+
+  Future<List> getPanels(u.User user) async {
+    final response = await http.get(
+      "${baseUrl}panels/userId/${user.id}",
+//      body: jsonEncode(user.toMap()),
       headers: {
         'content-type': 'application/json'
       }

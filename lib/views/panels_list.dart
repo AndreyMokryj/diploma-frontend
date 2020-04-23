@@ -12,20 +12,25 @@ class PanelsList extends StatelessWidget{
     User user = Provider.of<LoginNotifier>(context, listen: false).user;
 
     return FutureBuilder(
-      future: DBProvider.db.getOrders(user),
+      future: DBProvider.db.getPanels(user),
 
       builder: (context, snapshot){
         if (snapshot.hasData){
-          final orderMaps = (snapshot.data as List)..sort((a,b) => b['id'] - a['id']);
+          final panelMaps = (snapshot.data as List);
 
-          if (orderMaps.length > 0) {
+          if (panelMaps.length > 0) {
             return SingleChildScrollView(
               child: Column(
-                children: orderMaps.map((map) {
-                  Order order = Order.fromMap(map);
-
-                  return OrderWidget(
-                    order: order,
+                children: panelMaps.map((map) {
+//                  Order order = Order.fromMap(map);
+//
+//                  return OrderWidget(
+//                    order: order,
+//                  );
+                  return Container(
+                    height: 30,
+                    margin: EdgeInsets.all(4),
+                    color: Colors.green,
                   );
                 }).toList(),
               ),
@@ -33,7 +38,7 @@ class PanelsList extends StatelessWidget{
           }
           else {
             return Center(
-              child: Text("Заказов пока нет"),
+              child: Text("Немає панелей"),
             );
           }
         }
