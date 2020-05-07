@@ -6,7 +6,7 @@ import 'package:flutterappweb/model/movie_model.dart';
 import 'package:flutterappweb/views/menu_widget.dart';
 import 'package:flutterappweb/views/movie_page.dart';
 import 'package:flutterappweb/views/panels_list.dart';
-import 'package:flutterappweb/views/movie_list.dart';
+import 'package:flutterappweb/views/station_page.dart';
 
 class MainView extends StatelessWidget {
   final String name;
@@ -76,7 +76,7 @@ class MainView extends StatelessWidget {
                               );
                               break;
                             default:
-                              return MovieList();
+                              return StationPage();
                           }
                         },
                       ),
