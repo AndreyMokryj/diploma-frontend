@@ -48,6 +48,7 @@ flutter:
 #    - assets/images/panels.png
 #    - assets/images/grid.png
     - assets/images/
+    - assets/images/switch/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

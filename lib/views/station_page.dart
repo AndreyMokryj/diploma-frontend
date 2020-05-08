@@ -43,15 +43,36 @@ class StationPage extends StatelessWidget{
     return Container(
       child: Column(
         children: <Widget>[
-          Image.asset(
-            "assets/images/panels.png",
+          Row(
+            children: <Widget>[
+              Expanded(
+                child: Image.asset(
+                  "assets/images/panels.png",
+                ),
+              ),
+              Expanded(
+                child: Image.asset(
+                  "assets/images/switch/h_switch_on.png",
+                ),
+              ),
+              Expanded(
+                child: Image.asset(
+                  "assets/images/accumulator.png",
+                ),
+              ),
+              Expanded(
+                child: Image.asset(
+                  "assets/images/switch/h_switch_on.png",
+                ),
+              ),
+              Expanded(
+                child: Image.asset(
+                  "assets/images/grid.png",
+                ),
+              ),
+            ],
           ),
-          Image.asset(
-            "assets/images/accumulator.png",
-          ),
-          Image.asset(
-            "assets/images/grid.png",
-          ),
+
         ],
       ),
     );
