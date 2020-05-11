@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutterappweb/database/database.dart';
 import 'package:flutterappweb/helpers/constants.dart';
 import 'package:flutterappweb/helpers/utils.dart';
 import 'package:flutterappweb/model/accumulator_model.dart' as acc;
-import 'package:flutterappweb/model/notifiers/login_notifier.dart';
-import 'package:flutterappweb/model/user_model.dart';
-import 'package:provider/provider.dart';
 
 class StationWidget extends StatefulWidget{
   final acc.Accumulator accumulator;
@@ -19,7 +15,6 @@ class StationWidget extends StatefulWidget{
 class _StationWidgetState extends State<StationWidget> {
   @override
   Widget build(BuildContext context) {
-    User user = Provider.of<LoginNotifier>(context).user;
     double w = getWidth(context);
     int count = 1;
     if (w >= smallLimit) {
@@ -33,26 +28,47 @@ class _StationWidgetState extends State<StationWidget> {
       child: Column(
         children: <Widget>[
           Row(
+            mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               Expanded(
                 child: Image.asset(
                   "assets/images/panels.png",
                 ),
               ),
+              Container(
+                width: 2,
+                height: 20,
+                color: Colors.black,
+              ),
               Expanded(
                 child: Image.asset(
                   "assets/images/switch/h_switch_on.png",
                 ),
+              ),
+              Container(
+                width: 2,
+                height: 20,
+                color: Colors.black,
               ),
               Expanded(
                 child: Image.asset(
                   "assets/images/accumulator.png",
                 ),
               ),
+              Container(
+                width: 2,
+                height: 20,
+                color: Colors.black,
+              ),
               Expanded(
                 child: Image.asset(
                   "assets/images/switch/h_switch_on.png",
                 ),
+              ),
+              Container(
+                width: 2,
+                height: 20,
+                color: Colors.black,
               ),
               Expanded(
                 child: Image.asset(
@@ -61,7 +77,6 @@ class _StationWidgetState extends State<StationWidget> {
               ),
             ],
           ),
-
         ],
       ),
     );
