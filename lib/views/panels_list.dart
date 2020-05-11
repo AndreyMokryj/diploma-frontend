@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutterappweb/database/database.dart';
 import 'package:flutterappweb/model/notifiers/login_notifier.dart';
-import 'package:flutterappweb/model/order_model.dart';
 import 'package:flutterappweb/model/user_model.dart';
-import 'package:flutterappweb/views/order_widget.dart';
 import 'package:provider/provider.dart';
 
 class PanelsList extends StatelessWidget{

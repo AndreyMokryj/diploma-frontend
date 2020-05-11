@@ -2,21 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:flutterappweb/database/database.dart';
 import 'package:flutterappweb/helpers/constants.dart';
 import 'package:flutterappweb/helpers/utils.dart';
-import 'package:flutterappweb/model/movie_model.dart';
 import 'package:flutterappweb/views/menu_widget.dart';
-import 'package:flutterappweb/views/movie_page.dart';
+import 'package:flutterappweb/views/panel_page.dart';
 import 'package:flutterappweb/views/panels_list.dart';
 import 'package:flutterappweb/views/station_page.dart';
 
 class MainView extends StatelessWidget {
   final String name;
-  final int movieId;
+  final String panelId;
 
-  const MainView({Key key, this.name, this.movieId}) : super(key: key);
+  const MainView({Key key, this.name, this.panelId}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    Movie movie;
+    Object panel;
     String title;
     double w = getWidth(context);
 
@@ -27,17 +26,17 @@ class MainView extends StatelessWidget {
         }
       },
       child: FutureBuilder(
-        future: movieId != null ? DBProvider.db.getMovie(movieId) : null,
+        future: panelId != null ? DBProvider.db.getPanel(panelId) : null,
         builder: (context, snapshot) {
           if (snapshot.hasData){
-            movie = snapshot.data;
-            title = '${movie.name} / ${movie.nameOriginal}';
+            panel = snapshot.data;
+//            title = '${movie.name} / ${movie.nameOriginal}';
           }
 
-          if (snapshot.hasData || movieId == null) {
+          if (snapshot.hasData || panelId == null) {
             return Scaffold(
               appBar: AppBar(
-                automaticallyImplyLeading: movieId != null,
+                automaticallyImplyLeading: panelId != null,
 //                automaticallyImplyLeading: false,
                 title: Text(title ?? pageNames[name]),
                 centerTitle: true,
@@ -71,8 +70,8 @@ class MainView extends StatelessWidget {
                               return PanelsList();
                               break;
                             case 'details':
-                              return MoviePage(
-                                movie: movie,
+                              return PanelPage(
+                                panel: panel,
                               );
                               break;
                             default:
