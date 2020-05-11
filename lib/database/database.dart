@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:flutterappweb/helpers/constants.dart';
+import 'package:flutterappweb/model/accumulator_model.dart';
 import 'package:flutterappweb/model/panel_model.dart';
 import 'package:flutterappweb/model/user_model.dart' as u;
 import 'package:http/http.dart' as http;
@@ -9,6 +10,7 @@ class DBProvider {
 
   static final DBProvider db = DBProvider._();
 
+//  Sign up
   Future<bool> newUser(u.User user) async {
     final response = await http.post(
       "${baseUrl}users/",
@@ -22,6 +24,7 @@ class DBProvider {
     return responseBody;
   }
 
+//  Login
   Future<u.User> checkUser(u.User user) async {
     final response = await http.post(
       "${baseUrl}users/check/",
@@ -35,6 +38,7 @@ class DBProvider {
     return u.User.fromMap(responseBody);
   }
 
+//  Panels
   Future<List> getPanels(u.User user) async {
     final response = await http.get(
       "${baseUrl}panels/userId/${user.id}",
@@ -57,5 +61,18 @@ class DBProvider {
 
     final responseBody = jsonDecode(response.body);
     return Panel.fromMap(responseBody);
+  }
+
+//  Accumulator
+  Future<Accumulator> getAccumulator(String userId) async {
+    final response = await http.get(
+      "${baseUrl}accumulator/userId/${userId}",
+      headers: {
+        'content-type': 'application/json'
+      }
+    );
+
+    final responseBody = jsonDecode(response.body);
+    return Accumulator.fromMap(responseBody);
   }
 }
