@@ -31,10 +31,9 @@ class MyApp extends StatelessWidget {
 
 class MainPage extends StatelessWidget {
   final String name;
-//  final int movieId;
+  final String panelId;
 
-//  MainPage({Key key, this.name = "home", this.movieId}) : super(key: key);
-  MainPage({Key key, this.name = "home"}) : super(key: key);
+  MainPage({Key key, this.name = "home", this.panelId}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +47,7 @@ class MainPage extends StatelessWidget {
     if (loggedIn) {
       return MainView(
         name: name,
-//        movieId: movieId,
+        panelId: panelId,
       );
     }
     else {
@@ -64,7 +63,7 @@ Route<dynamic> _getRoute(RouteSettings settings) {
     String id = path.substring(9);
     page = MainPage(
       name: 'details',
-//      movieId: int.tryParse(id),
+      panelId: id,
     );
   }
   else {

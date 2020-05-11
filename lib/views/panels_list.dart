@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutterappweb/database/database.dart';
 import 'package:flutterappweb/model/notifiers/login_notifier.dart';
+import 'package:flutterappweb/model/panel_model.dart';
 import 'package:flutterappweb/model/user_model.dart';
+import 'package:flutterappweb/views/panel_page.dart';
+import 'package:flutterappweb/views/panel_widget.dart';
 import 'package:provider/provider.dart';
 
 class PanelsList extends StatelessWidget{
@@ -20,16 +23,16 @@ class PanelsList extends StatelessWidget{
             return SingleChildScrollView(
               child: Column(
                 children: panelMaps.map((map) {
-//                  Order order = Order.fromMap(map);
-//
-//                  return OrderWidget(
-//                    order: order,
-//                  );
-                  return Container(
-                    height: 30,
-                    margin: EdgeInsets.all(4),
-                    color: Colors.green,
+                  Panel panel = Panel.fromMap(map);
+
+                  return PanelWidget(
+                    panel: panel,
                   );
+//                  return Container(
+//                    height: 30,
+//                    margin: EdgeInsets.all(4),
+//                    color: Colors.green,
+//                  );
                 }).toList(),
               ),
             );

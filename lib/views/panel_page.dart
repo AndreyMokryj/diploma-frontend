@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutterappweb/helpers/constants.dart';
 import 'package:flutterappweb/helpers/utils.dart';
+import 'package:flutterappweb/model/panel_model.dart';
 
 class PanelPage extends StatelessWidget{
-  final Object panel;
+  final Panel panel;
 
   const PanelPage({Key key, this.panel}) : super(key: key);
 

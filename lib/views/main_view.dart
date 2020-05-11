@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutterappweb/database/database.dart';
 import 'package:flutterappweb/helpers/constants.dart';
 import 'package:flutterappweb/helpers/utils.dart';
+import 'package:flutterappweb/model/notifiers/login_notifier.dart';
+import 'package:flutterappweb/model/panel_model.dart';
 import 'package:flutterappweb/views/menu_widget.dart';
 import 'package:flutterappweb/views/panel_page.dart';
 import 'package:flutterappweb/views/panels_list.dart';
 import 'package:flutterappweb/views/station_page.dart';
+import 'package:provider/provider.dart';
 
 class MainView extends StatelessWidget {
   final String name;
@@ -15,7 +18,7 @@ class MainView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Object panel;
+    Panel panel;
     String title;
     double w = getWidth(context);
 
@@ -26,11 +29,11 @@ class MainView extends StatelessWidget {
         }
       },
       child: FutureBuilder(
-        future: panelId != null ? DBProvider.db.getPanel(panelId) : null,
+        future: panelId != null ? DBProvider.db.getPanel(panelId, Provider.of<LoginNotifier>(context, listen: false).user.id) : null,
         builder: (context, snapshot) {
           if (snapshot.hasData){
             panel = snapshot.data;
-//            title = '${movie.name} / ${movie.nameOriginal}';
+            title = '${panel.name}';
           }
 
           if (snapshot.hasData || panelId == null) {

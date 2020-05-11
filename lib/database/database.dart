@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:flutterappweb/helpers/constants.dart';
+import 'package:flutterappweb/model/panel_model.dart';
 import 'package:flutterappweb/model/user_model.dart' as u;
 import 'package:http/http.dart' as http;
 
@@ -46,15 +47,15 @@ class DBProvider {
     return responseBody;
   }
 
-  Future<Object> getPanel(String panelId) async {
+  Future<Panel> getPanel(String panelId, String userId) async {
     final response = await http.get(
-      "${baseUrl}panels/${panelId}",
+      "${baseUrl}panels/${panelId}/userId/${userId}",
       headers: {
         'content-type': 'application/json'
       }
     );
 
     final responseBody = jsonDecode(response.body);
-    return responseBody;
+    return Panel.fromMap(responseBody);
   }
 }
