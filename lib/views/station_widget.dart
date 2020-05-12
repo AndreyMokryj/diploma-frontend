@@ -13,6 +13,15 @@ class StationWidget extends StatefulWidget{
 }
 
 class _StationWidgetState extends State<StationWidget> {
+  acc.Accumulator _accumulator;
+
+  @override
+  void initState() {
+    _accumulator = widget.accumulator;
+
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     double w = getWidth(context);
@@ -41,8 +50,16 @@ class _StationWidgetState extends State<StationWidget> {
                 color: Colors.black,
               ),
               Expanded(
-                child: Image.asset(
-                  "assets/images/switch/h_switch_on.png",
+                child: FlatButton(
+                  child: Image.asset(
+                    _accumulator.stationConnection == 1 ? "assets/images/switch/h_switch_on.png" : "assets/images/switch/h_switch_off.png",
+                  ),
+                  onPressed: (){
+                    _accumulator.stationConnection = 1 - _accumulator.stationConnection;
+                    setState(() {
+                      _accumulator = _accumulator;
+                    });
+                  },
                 ),
               ),
               Container(
@@ -61,8 +78,16 @@ class _StationWidgetState extends State<StationWidget> {
                 color: Colors.black,
               ),
               Expanded(
-                child: Image.asset(
-                  "assets/images/switch/h_switch_on.png",
+                child: FlatButton(
+                  child: Image.asset(
+                    _accumulator.gridConnection == 1 ? "assets/images/switch/h_switch_on.png" : "assets/images/switch/h_switch_off.png",
+                  ),
+                  onPressed: (){
+                    _accumulator.gridConnection = 1 - _accumulator.gridConnection;
+                    setState(() {
+                      _accumulator = _accumulator;
+                    });
+                  },
                 ),
               ),
               Container(
