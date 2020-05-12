@@ -75,4 +75,28 @@ class DBProvider {
     final responseBody = jsonDecode(response.body);
     return Accumulator.fromMap(responseBody);
   }
+
+  Future<bool> switchGrid(Accumulator accumulator) async {
+    final response = await http.get(
+      "${baseUrl}accumulator/turn-grid-${accumulator.gridConnection}/userId/${accumulator.id}",
+      headers: {
+        'content-type': 'application/json'
+      }
+    );
+
+    final responseBody = jsonDecode(response.body);
+    return responseBody;
+  }
+
+  Future<bool> switchStation(Accumulator accumulator) async {
+    final response = await http.get(
+      "${baseUrl}accumulator/turn-station-${accumulator.stationConnection}/userId/${accumulator.id}",
+      headers: {
+        'content-type': 'application/json'
+      }
+    );
+
+    final responseBody = jsonDecode(response.body);
+    return responseBody;
+  }
 }

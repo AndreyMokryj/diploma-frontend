@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterappweb/database/database.dart';
 import 'package:flutterappweb/helpers/constants.dart';
 import 'package:flutterappweb/helpers/utils.dart';
 import 'package:flutterappweb/model/accumulator_model.dart' as acc;
@@ -54,8 +55,9 @@ class _StationWidgetState extends State<StationWidget> {
                   child: Image.asset(
                     _accumulator.stationConnection == 1 ? "assets/images/switch/h_switch_on.png" : "assets/images/switch/h_switch_off.png",
                   ),
-                  onPressed: (){
+                  onPressed: () async {
                     _accumulator.stationConnection = 1 - _accumulator.stationConnection;
+                    await DBProvider.db.switchStation(_accumulator);
                     setState(() {
                       _accumulator = _accumulator;
                     });
@@ -82,8 +84,10 @@ class _StationWidgetState extends State<StationWidget> {
                   child: Image.asset(
                     _accumulator.gridConnection == 1 ? "assets/images/switch/h_switch_on.png" : "assets/images/switch/h_switch_off.png",
                   ),
-                  onPressed: (){
+                  onPressed: () async {
                     _accumulator.gridConnection = 1 - _accumulator.gridConnection;
+                    await DBProvider.db.switchGrid(_accumulator);
+
                     setState(() {
                       _accumulator = _accumulator;
                     });
