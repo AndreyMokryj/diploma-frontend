@@ -56,6 +56,7 @@ class MainView extends StatelessWidget {
                 ],
               ),
               body: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   w > largeLimit ?
                   Expanded(
