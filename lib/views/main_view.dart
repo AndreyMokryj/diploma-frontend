@@ -24,8 +24,13 @@ class MainView extends StatelessWidget {
 
     return WillPopScope(
       onWillPop: () {
-        if (name != 'home') {
-          Navigator.of(context).pop();
+        if(name == "details"){
+          Navigator.of(context).pushNamed("/panels");
+        }
+        else {
+          if (name != 'home') {
+            Navigator.of(context).pop();
+          }
         }
       },
       child: FutureBuilder(
