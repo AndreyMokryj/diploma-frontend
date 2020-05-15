@@ -38,7 +38,7 @@ class _PanelWidgetState extends State<PanelWidget> {
               children: <Widget>[
                 Row(
                   children: <Widget>[
-                    Text(_panel.name),
+                    Text("${_panel.name}"),
                     SizedBox(
                       width: 30,
                     ),
@@ -46,7 +46,7 @@ class _PanelWidgetState extends State<PanelWidget> {
                       future: DBProvider.db.getPanelPower(_panel),
                       builder: (context, snapshot){
                         if(snapshot.hasData){
-                          return Text("${snapshot.data}");
+                          return Text("${formatDouble(snapshot.data as double, 2)} W");
                         }
                         return Container();
                       },
