@@ -63,6 +63,42 @@ class DBProvider {
     return Panel.fromMap(responseBody);
   }
 
+  Future<bool> switchPanel(Panel panel) async {
+    final response = await http.get(
+      "${baseUrl}panels/turn-${panel.connected}/${panel.id}/userId/${panel.userId}",
+      headers: {
+        'content-type': 'application/json'
+      }
+    );
+
+    final responseBody = jsonDecode(response.body);
+    return responseBody;
+  }
+
+  Future<double> getPanelPower(Panel panel) async {
+    final response = await http.get(
+      "${baseUrl}panels/power/${panel.id}/userId/${panel.userId}",
+      headers: {
+        'content-type': 'application/json'
+      }
+    );
+
+    final responseBody = jsonDecode(response.body);
+    return responseBody;
+  }
+
+  Future<double> getPanelsTotalPower(String userId) async {
+    final response = await http.get(
+      "${baseUrl}panels/power/total/userId/${userId}",
+      headers: {
+        'content-type': 'application/json'
+      }
+    );
+
+    final responseBody = jsonDecode(response.body);
+    return responseBody;
+  }
+
 //  Accumulator
   Future<Accumulator> getAccumulator(String userId) async {
     final response = await http.get(
@@ -91,18 +127,6 @@ class DBProvider {
   Future<bool> switchStation(Accumulator accumulator) async {
     final response = await http.get(
       "${baseUrl}accumulator/turn-station-${accumulator.stationConnection}/userId/${accumulator.id}",
-      headers: {
-        'content-type': 'application/json'
-      }
-    );
-
-    final responseBody = jsonDecode(response.body);
-    return responseBody;
-  }
-
-  Future<bool> switchPanel(Panel panel) async {
-    final response = await http.get(
-      "${baseUrl}panels/turn-${panel.connected}/${panel.id}/userId/${panel.userId}",
       headers: {
         'content-type': 'application/json'
       }

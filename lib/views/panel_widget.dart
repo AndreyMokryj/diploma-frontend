@@ -27,7 +27,6 @@ class _PanelWidgetState extends State<PanelWidget> {
     double h = getHeight(context);
 
     return Container(
-//      height: 30,
       margin: EdgeInsets.all(4),
 //      color: panel.connected == 1 ? Colors.green : Colors.red,
       child: Row(
@@ -35,8 +34,29 @@ class _PanelWidgetState extends State<PanelWidget> {
           Expanded(
             flex: 2,
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
+                Row(
+                  children: <Widget>[
+                    Text(_panel.name),
+                    SizedBox(
+                      width: 30,
+                    ),
+                    FutureBuilder(
+                      future: DBProvider.db.getPanelPower(_panel),
+                      builder: (context, snapshot){
+                        if(snapshot.hasData){
+                          return Text("${snapshot.data}");
+                        }
+                        return Container();
+                      },
+                    ),
+                  ],
+                ),
+                Text(_panel.model),
+                Text("${_panel.nominalPower} W"),
                 FlatButton(
+                  child: Text("Деталі"),
                   onPressed: (){
                     Navigator.of(context).pushNamed("/details/${widget.panel.id}");
                   },
