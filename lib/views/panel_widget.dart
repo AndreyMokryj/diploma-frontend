@@ -1,49 +1,65 @@
 import 'package:flutter/material.dart';
-import 'package:flutterappweb/helpers/constants.dart';
+import 'package:flutterappweb/database/database.dart';
 import 'package:flutterappweb/helpers/utils.dart';
 import 'package:flutterappweb/model/panel_model.dart';
 
-class PanelWidget extends StatelessWidget{
+class PanelWidget extends StatefulWidget{
   final Panel panel;
 
   const PanelWidget({Key key, this.panel}) : super(key: key);
+
+  @override
+  _PanelWidgetState createState() => _PanelWidgetState();
+}
+
+class _PanelWidgetState extends State<PanelWidget> {
+  Panel _panel;
+
+  @override
+  void initState() {
+    _panel = widget.panel;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     double w = getWidth(context);
     double h = getHeight(context);
 
-//    return SingleChildScrollView(
-//      padding: EdgeInsets.all(20),
-//      child: Column(
-//        children: <Widget>[
-//          Container(
-//            padding: EdgeInsets.all(1),
-//            height: w > smallLimit ? h * 0.8 : null,
-//            width: w > smallLimit ? null : w * 0.9,
-//
-//          ),
-//
-//          SizedBox(
-//            height: 20,
-//          ),
-//
-//          SizedBox(
-//            height: 30,
-//          ),
-//
-//        ],
-//      ),
-//    );
-
     return Container(
-      height: 30,
+//      height: 30,
       margin: EdgeInsets.all(4),
-      color: panel.connected == 1 ? Colors.green : Colors.red,
-      child: FlatButton(
-        onPressed: (){
-          Navigator.of(context).pushNamed("/details/${panel.id}");
-        },
+//      color: panel.connected == 1 ? Colors.green : Colors.red,
+      child: Row(
+        children: <Widget>[
+          Expanded(
+            flex: 2,
+            child: Column(
+              children: <Widget>[
+                FlatButton(
+                  onPressed: (){
+                    Navigator.of(context).pushNamed("/details/${widget.panel.id}");
+                  },
+                ),
+              ],
+            ),
+          ),
+//          Expanded(
+//            child:
+            Switch(
+              value: _panel.connected == 1,
+              onChanged: (val) async {
+                _panel.connected = val ? 1 : 0;
+                bool s = await DBProvider.db.switchPanel(_panel);
+                if (s){
+                  setState(() {
+                    _panel = _panel;
+                  });
+                }
+              },
+            ),
+//          )
+        ],
       ),
     );
   }

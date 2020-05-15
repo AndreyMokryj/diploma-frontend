@@ -99,4 +99,16 @@ class DBProvider {
     final responseBody = jsonDecode(response.body);
     return responseBody;
   }
+
+  Future<bool> switchPanel(Panel panel) async {
+    final response = await http.get(
+      "${baseUrl}panels/turn-${panel.connected}/${panel.id}/userId/${panel.userId}",
+      headers: {
+        'content-type': 'application/json'
+      }
+    );
+
+    final responseBody = jsonDecode(response.body);
+    return responseBody;
+  }
 }

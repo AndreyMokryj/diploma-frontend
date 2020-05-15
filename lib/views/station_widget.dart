@@ -19,7 +19,6 @@ class _StationWidgetState extends State<StationWidget> {
   @override
   void initState() {
     _accumulator = widget.accumulator;
-
     super.initState();
   }
 
