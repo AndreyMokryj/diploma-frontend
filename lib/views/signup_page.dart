@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutterappweb/database/database.dart';
-import 'package:flutterappweb/helpers/constants.dart';
-import 'package:flutterappweb/helpers/styles.dart';
-import 'package:flutterappweb/helpers/utils.dart';
-import 'package:flutterappweb/model/user_model.dart';
+import 'package:SUNMAX/database/database.dart';
+import 'package:SUNMAX/helpers/constants.dart';
+import 'package:SUNMAX/helpers/styles.dart';
+import 'package:SUNMAX/helpers/utils.dart';
+import 'package:SUNMAX/model/user_model.dart';
 
 class SignupPage extends StatefulWidget{
   @override

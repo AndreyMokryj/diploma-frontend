@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutterappweb/database/database.dart';
-import 'package:flutterappweb/model/notifiers/login_notifier.dart';
-import 'package:flutterappweb/model/panel_model.dart';
-import 'package:flutterappweb/model/user_model.dart';
-import 'package:flutterappweb/views/panel_widget.dart';
+import 'package:SUNMAX/database/database.dart';
+import 'package:SUNMAX/model/notifiers/login_notifier.dart';
+import 'package:SUNMAX/model/panel_model.dart';
+import 'package:SUNMAX/model/user_model.dart';
+import 'package:SUNMAX/views/panel_widget.dart';
 import 'package:provider/provider.dart';
 
 class PanelsList extends StatelessWidget{

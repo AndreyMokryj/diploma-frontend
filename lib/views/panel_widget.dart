@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutterappweb/database/database.dart';
-import 'package:flutterappweb/helpers/utils.dart';
-import 'package:flutterappweb/model/panel_model.dart';
+import 'package:SUNMAX/database/database.dart';
+import 'package:SUNMAX/helpers/utils.dart';
+import 'package:SUNMAX/model/panel_model.dart';
 
 class PanelWidget extends StatefulWidget{
   final Panel panel;

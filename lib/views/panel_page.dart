@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutterappweb/helpers/constants.dart';
-import 'package:flutterappweb/helpers/utils.dart';
-import 'package:flutterappweb/model/panel_model.dart';
-import 'package:flutterappweb/views/history_widget.dart';
+import 'package:SUNMAX/helpers/constants.dart';
+import 'package:SUNMAX/helpers/utils.dart';
+import 'package:SUNMAX/model/panel_model.dart';
+import 'package:SUNMAX/views/history_widget.dart';
 
 class PanelPage extends StatelessWidget{
   final Panel panel;

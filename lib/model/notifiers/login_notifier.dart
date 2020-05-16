@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutterappweb/model/user_model.dart';
+import 'package:SUNMAX/model/user_model.dart';
 
 class LoginNotifier extends ChangeNotifier {
   bool loggedIn;

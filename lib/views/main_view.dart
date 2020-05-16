@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutterappweb/database/database.dart';
-import 'package:flutterappweb/helpers/constants.dart';
-import 'package:flutterappweb/helpers/utils.dart';
-import 'package:flutterappweb/model/notifiers/login_notifier.dart';
-import 'package:flutterappweb/model/panel_model.dart';
-import 'package:flutterappweb/views/menu_widget.dart';
-import 'package:flutterappweb/views/panel_page.dart';
-import 'package:flutterappweb/views/panels_list.dart';
-import 'package:flutterappweb/views/station_page.dart';
+import 'package:SUNMAX/database/database.dart';
+import 'package:SUNMAX/helpers/constants.dart';
+import 'package:SUNMAX/helpers/utils.dart';
+import 'package:SUNMAX/model/notifiers/login_notifier.dart';
+import 'package:SUNMAX/model/panel_model.dart';
+import 'package:SUNMAX/views/menu_widget.dart';
+import 'package:SUNMAX/views/panel_page.dart';
+import 'package:SUNMAX/views/panels_list.dart';
+import 'package:SUNMAX/views/station_page.dart';
 import 'package:provider/provider.dart';
 
 class MainView extends StatelessWidget {

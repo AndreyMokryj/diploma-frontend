@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutterappweb/helpers/utils.dart';
-import 'package:flutterappweb/model/panel_model.dart';
+import 'package:SUNMAX/helpers/utils.dart';
+import 'package:SUNMAX/model/panel_model.dart';
 
 class DiagramWidget extends StatelessWidget{
   final Panel panel;

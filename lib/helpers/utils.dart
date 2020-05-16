@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutterappweb/database/database.dart';
-import 'package:flutterappweb/model/log_model.dart';
-import 'package:flutterappweb/model/notifiers/login_notifier.dart';
-import 'package:flutterappweb/model/panel_model.dart';
+import 'package:SUNMAX/database/database.dart';
+import 'package:SUNMAX/model/log_model.dart';
+import 'package:SUNMAX/model/notifiers/login_notifier.dart';
+import 'package:SUNMAX/model/panel_model.dart';
 import 'package:provider/provider.dart';
 
 double getWidth(BuildContext context) => MediaQuery.of(context).size.width;

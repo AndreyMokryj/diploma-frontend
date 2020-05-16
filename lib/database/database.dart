@@ -1,8 +1,8 @@
 import 'dart:convert';
-import 'package:flutterappweb/helpers/constants.dart';
-import 'package:flutterappweb/model/accumulator_model.dart';
-import 'package:flutterappweb/model/panel_model.dart';
-import 'package:flutterappweb/model/user_model.dart' as u;
+import 'package:SUNMAX/helpers/constants.dart';
+import 'package:SUNMAX/model/accumulator_model.dart';
+import 'package:SUNMAX/model/panel_model.dart';
+import 'package:SUNMAX/model/user_model.dart' as u;
 import 'package:http/http.dart' as http;
 
 class DBProvider {

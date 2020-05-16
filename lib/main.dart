@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutterappweb/model/notifiers/login_notifier.dart';
-import 'package:flutterappweb/views/login_page.dart';
-import 'package:flutterappweb/views/main_view.dart';
-import 'package:flutterappweb/views/signup_page.dart';
+import 'package:SUNMAX/model/notifiers/login_notifier.dart';
+import 'package:SUNMAX/views/login_page.dart';
+import 'package:SUNMAX/views/main_view.dart';
+import 'package:SUNMAX/views/signup_page.dart';
 import 'package:provider/provider.dart';
 
 void main() => runApp(
