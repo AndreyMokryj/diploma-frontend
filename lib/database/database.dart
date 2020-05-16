@@ -135,4 +135,17 @@ class DBProvider {
     final responseBody = jsonDecode(response.body);
     return responseBody;
   }
+
+//  Logs
+  Future<List> getPanelHistoryLogs(Panel panel) async {
+    final response = await http.get(
+      "${baseUrl}logs/history-produced/userId/${panel.userId}",
+      headers: {
+        'content-type': 'application/json'
+      }
+    );
+
+    final responseBody = jsonDecode(response.body);
+    return responseBody;
+  }
 }
