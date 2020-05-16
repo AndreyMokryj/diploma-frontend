@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutterappweb/database/database.dart';
-import 'package:flutterappweb/helpers/constants.dart';
 import 'package:flutterappweb/helpers/utils.dart';
-import 'package:flutterappweb/model/log_model.dart';
 import 'package:flutterappweb/model/panel_model.dart';
 
 class HistoryWidget extends StatefulWidget{
@@ -67,17 +64,19 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                         child: Text("Вироблено енергії, кВт-год"),
                       ),
                       widget.panel == null
-                        ? Row(
-                        children: <Widget>[
-                          Container(
-                            width: 2,
-                            color: Colors.black,
-                          ),
-                          Expanded(
-                            child: Text("Продано енергії, кВт-год"),
-                          ),
-                        ],
-                      )
+                        ? Expanded(
+                          child: Row(
+                          children: <Widget>[
+                            Container(
+                              width: 2,
+                              color: Colors.black,
+                            ),
+                            Expanded(
+                              child: Text("Продано енергії, кВт-год"),
+                            ),
+                          ],
+                      ),
+                        )
                         : Container(),
                     ],
                   ),
@@ -96,17 +95,19 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                           child: Text("${formatDouble(e.produced / 3600000, 2)}"),
                         ),
                         widget.panel == null
-                          ? Row(
-                          children: <Widget>[
-                            Container(
-                              width: 2,
-                              color: Colors.black,
-                            ),
-                            Expanded(
-                              child: Text("${formatDouble(e.given / 3600000, 2)}"),
-                            ),
-                          ],
-                        )
+                          ? Expanded(
+                            child: Row(
+                            children: <Widget>[
+                              Container(
+                                width: 2,
+                                color: Colors.black,
+                              ),
+                              Expanded(
+                                child: Text("${formatDouble(e.given / 3600000, 2)}"),
+                              ),
+                            ],
+                        ),
+                          )
                           : Container(),
                       ],
                     );
