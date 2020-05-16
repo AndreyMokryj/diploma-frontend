@@ -24,26 +24,17 @@ class DiagramWidget extends StatelessWidget{
             charts.Series(
               id: 'Produced',
               domainFn: (Log logData, _) => logData.time,
-              measureFn: (Log logData, _) => logData.produced,
+              measureFn: (Log logData, _) => logData.produced / 3600000,
               colorFn: (Log logData, _) => charts.Color(r: 255, g: 255, b: 0),
               data: logMaps,
             ),
-
-//            panel == null ?
-//            charts.Series(
-//              id: 'Given',
-//              domainFn: (Log logData, _) => logData.time,
-//              measureFn: (Log logData, _) => logData.given,
-//              colorFn: (Log logData, _) => charts.Color(r: 255, g: 255),
-//              data: logMaps,
-//            ) : null,
           ];
 
           if(panel == null){
             series.add(charts.Series(
               id: 'Given',
               domainFn: (Log logData, _) => logData.time,
-              measureFn: (Log logData, _) => logData.given,
+              measureFn: (Log logData, _) => logData.given / 3600000,
               colorFn: (Log logData, _) => charts.Color(r: 0, g: 255, b: 0),
               data: logMaps,
             ));
