@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bb966b89-b0bc-4214-ae4e-137a1f6be559" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/lib/model/log_model.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/views/history_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/history_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/views/panel_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/panel_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/views/station_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/station_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/helpers/constants.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/helpers/constants.dart" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,13 +31,13 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="dart.analysis.tool.window.force.activate" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/views" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/model" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/lib/views" />
       <recent name="$PROJECT_DIR$/lib/model" />
+      <recent name="$PROJECT_DIR$/lib/views" />
     </key>
   </component>
   <component name="RunDashboard">
