@@ -42,7 +42,7 @@ Future<List<Log>> getPanelTodayLogs(Panel panel) async{
     }
   });
 
-  result.sort((l1, l2) => l1.time.compareTo(l2.time));
+//  result.sort((l1, l2) => l1.time.compareTo(l2.time));
   return result;
 }
 
@@ -92,6 +92,6 @@ Future<List<Log>> getAlllTodayLogs(BuildContext context) async{
     result.add(resultLog);
   });
 
-  result.sort((l1, l2) => l1.time.compareTo(l2.time));
+//  result.sort((l1, l2) => l1.time.compareTo(l2.time));
   return result;
 }
