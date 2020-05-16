@@ -4,6 +4,7 @@ import 'package:SUNMAX/helpers/constants.dart';
 import 'package:SUNMAX/helpers/utils.dart';
 import 'package:SUNMAX/model/accumulator_model.dart' as acc;
 import 'package:SUNMAX/views/history_widget.dart';
+import 'package:SUNMAX/views/diagram_widget.dart';
 
 class StationWidget extends StatefulWidget{
   final acc.Accumulator accumulator;
@@ -108,6 +109,7 @@ class _StationWidgetState extends State<StationWidget> {
               ),
             ],
           ),
+          DiagramWidget(),
 
           SizedBox(
             height: 30,

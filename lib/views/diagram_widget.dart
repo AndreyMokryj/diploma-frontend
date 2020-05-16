@@ -22,30 +22,39 @@ class DiagramWidget extends StatelessWidget{
 
           var series = [
             charts.Series(
-              id: 'Clicks',
+              id: 'Produced',
               domainFn: (Log logData, _) => logData.time,
               measureFn: (Log logData, _) => logData.produced,
-              colorFn: (Log logData, _) => charts.Color(r: 255, g: 255),
+              colorFn: (Log logData, _) => charts.Color(r: 255, g: 255, b: 0),
               data: logMaps,
             ),
 
-            panel == null ?
-            charts.Series(
-              id: 'Clicks',
-              domainFn: (Log logData, _) => logData.time,
-              measureFn: (Log logData, _) => logData.produced,
-              colorFn: (Log logData, _) => charts.Color(r: 255, g: 255),
-              data: logMaps,
-            ) : null,
+//            panel == null ?
+//            charts.Series(
+//              id: 'Given',
+//              domainFn: (Log logData, _) => logData.time,
+//              measureFn: (Log logData, _) => logData.given,
+//              colorFn: (Log logData, _) => charts.Color(r: 255, g: 255),
+//              data: logMaps,
+//            ) : null,
           ];
 
-          return Column(
-            children: <Widget>[
-              charts.LineChart<Log>(
-                series,
-                animate: false,
-              )
-            ]
+          if(panel == null){
+            series.add(charts.Series(
+              id: 'Given',
+              domainFn: (Log logData, _) => logData.time,
+              measureFn: (Log logData, _) => logData.given,
+              colorFn: (Log logData, _) => charts.Color(r: 0, g: 255, b: 0),
+              data: logMaps,
+            ));
+          }
+
+          return Container(
+            height: h / 2,
+            child: charts.BarChart(
+              series,
+              animate: false,
+            ),
           );
         }
         else {
