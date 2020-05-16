@@ -137,9 +137,45 @@ class DBProvider {
   }
 
 //  Logs
-  Future<List> getPanelHistoryLogs(Panel panel) async {
+  Future<List> getHistoryProducedLogs(String userId) async {
     final response = await http.get(
-      "${baseUrl}logs/history-produced/userId/${panel.userId}",
+      "${baseUrl}logs/history-produced/userId/${userId}",
+      headers: {
+        'content-type': 'application/json'
+      }
+    );
+
+    final responseBody = jsonDecode(response.body);
+    return responseBody;
+  }
+
+  Future<List> getHistoryGivenLogs(String userId) async {
+    final response = await http.get(
+      "${baseUrl}logs/history-given/userId/${userId}",
+      headers: {
+        'content-type': 'application/json'
+      }
+    );
+
+    final responseBody = jsonDecode(response.body);
+    return responseBody;
+  }
+
+  Future<List> getTodayProducedLogs(String userId) async {
+    final response = await http.get(
+      "${baseUrl}logs/today-produced/userId/${userId}",
+      headers: {
+        'content-type': 'application/json'
+      }
+    );
+
+    final responseBody = jsonDecode(response.body);
+    return responseBody;
+  }
+
+  Future<List> getTodayGivenLogs(String userId) async {
+    final response = await http.get(
+      "${baseUrl}logs/today-given/userId/${userId}",
       headers: {
         'content-type': 'application/json'
       }

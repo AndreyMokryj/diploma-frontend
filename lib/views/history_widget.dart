@@ -44,8 +44,8 @@ class _HistoryWidgetState extends State<HistoryWidget> {
           ),
         ),
         showHistory ? FutureBuilder(
-          future: widget.panel != null ? DBProvider.db.getPanelHistoryLogs(
-            widget.panel) : null,
+//          future: widget.panel != null ? DBProvider.db.getPanelHistoryLogs(
+          future: widget.panel != null ? null : null,
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               final logMaps = snapshot.data as List;
