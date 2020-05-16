@@ -3,6 +3,7 @@ import 'package:flutterappweb/database/database.dart';
 import 'package:flutterappweb/helpers/constants.dart';
 import 'package:flutterappweb/helpers/utils.dart';
 import 'package:flutterappweb/model/accumulator_model.dart' as acc;
+import 'package:flutterappweb/views/history_widget.dart';
 
 class StationWidget extends StatefulWidget{
   final acc.Accumulator accumulator;
@@ -15,10 +16,12 @@ class StationWidget extends StatefulWidget{
 
 class _StationWidgetState extends State<StationWidget> {
   acc.Accumulator _accumulator;
+  bool showHistory;
 
   @override
   void initState() {
     _accumulator = widget.accumulator;
+    showHistory = false;
     super.initState();
   }
 
@@ -105,6 +108,12 @@ class _StationWidgetState extends State<StationWidget> {
               ),
             ],
           ),
+
+          SizedBox(
+            height: 30,
+          ),
+
+          HistoryWidget(),
         ],
       ),
     );

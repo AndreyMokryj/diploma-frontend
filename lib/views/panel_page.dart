@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutterappweb/helpers/constants.dart';
 import 'package:flutterappweb/helpers/utils.dart';
 import 'package:flutterappweb/model/panel_model.dart';
+import 'package:flutterappweb/views/history_widget.dart';
 
 class PanelPage extends StatelessWidget{
   final Panel panel;
@@ -17,21 +18,13 @@ class PanelPage extends StatelessWidget{
       padding: EdgeInsets.all(20),
       child: Column(
         children: <Widget>[
-          Container(
-            padding: EdgeInsets.all(1),
-            height: w > smallLimit ? h * 0.8 : null,
-            width: w > smallLimit ? null : w * 0.9,
-
-          ),
-
-          SizedBox(
-            height: 20,
-          ),
-
           SizedBox(
             height: 30,
           ),
 
+          HistoryWidget(
+            panel: panel,
+          )
         ],
       ),
     );
