@@ -44,8 +44,7 @@ class _HistoryWidgetState extends State<HistoryWidget> {
           ),
         ),
         showHistory ? FutureBuilder(
-//          future: widget.panel != null ? DBProvider.db.getPanelHistoryLogs(
-          future: widget.panel != null ? null : null,
+          future: widget.panel != null ? getPanelHistoryLogs(widget.panel) : null,
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               final logMaps = snapshot.data as List;
@@ -84,18 +83,17 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                   ),
                 ] +
                   logMaps.map((e) {
-                    final log = Log.fromMap(e);
                     return Row(
                       children: <Widget>[
                         Expanded(
-                          child: Text(log.date),
+                          child: Text(e.date),
                         ),
                         Container(
                           width: 2,
                           color: Colors.black,
                         ),
                         Expanded(
-                          child: Text("${formatDouble(log.produced / 3600000, 2)}"),
+                          child: Text("${formatDouble(e.produced / 3600000, 2)}"),
                         ),
                         widget.panel == null
                           ? Row(
@@ -105,7 +103,7 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                               color: Colors.black,
                             ),
                             Expanded(
-                              child: Text("${formatDouble(log.given / 3600000, 2)}"),
+                              child: Text("${formatDouble(e.given / 3600000, 2)}"),
                             ),
                           ],
                         )
