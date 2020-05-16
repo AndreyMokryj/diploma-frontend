@@ -23,4 +23,6 @@ Future<List<Log>> getPanelHistoryLogs(Panel panel) async{
       result.add(log);
     }
   });
+
+  return result;
 }
