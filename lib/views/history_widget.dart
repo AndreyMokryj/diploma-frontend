@@ -41,14 +41,14 @@ class _HistoryWidgetState extends State<HistoryWidget> {
           ),
         ),
         showHistory ? FutureBuilder(
-          future: widget.panel != null ? getPanelHistoryLogs(widget.panel) : getAlllHistoryLogs(context),
+          future: widget.panel != null
+            ? getPanelHistoryLogs(widget.panel)
+            : getAlllHistoryLogs(context),
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               final logMaps = snapshot.data as List;
-//              return Container(
-//                height: 40,
-//                color: Colors.blue,
-//              );
+              logMaps.sort((l1, l2) => l2.date.compareTo(l1.date));
+
               return Column(
                 children: <Widget>[
                   Row(
@@ -65,7 +65,7 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                       ),
                       widget.panel == null
                         ? Expanded(
-                          child: Row(
+                        child: Row(
                           children: <Widget>[
                             Container(
                               width: 2,
@@ -75,8 +75,8 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                               child: Text("Продано енергії, кВт-год"),
                             ),
                           ],
-                      ),
-                        )
+                        ),
+                      )
                         : Container(),
                     ],
                   ),
@@ -92,22 +92,24 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                           color: Colors.black,
                         ),
                         Expanded(
-                          child: Text("${formatDouble(e.produced / 3600000, 2)}"),
+                          child: Text(
+                            "${formatDouble(e.produced / 3600000, 2)}"),
                         ),
                         widget.panel == null
                           ? Expanded(
-                            child: Row(
+                          child: Row(
                             children: <Widget>[
                               Container(
                                 width: 2,
                                 color: Colors.black,
                               ),
                               Expanded(
-                                child: Text("${formatDouble(e.given / 3600000, 2)}"),
+                                child: Text(
+                                  "${formatDouble(e.given / 3600000, 2)}"),
                               ),
                             ],
-                        ),
-                          )
+                          ),
+                        )
                           : Container(),
                       ],
                     );

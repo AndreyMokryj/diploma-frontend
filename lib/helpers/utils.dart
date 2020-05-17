@@ -26,7 +26,6 @@ Future<List<Log>> getPanelHistoryLogs(Panel panel) async{
     }
   });
 
-  result.sort((l1, l2) => l1.date.compareTo(l2.date));
   return result;
 }
 
@@ -42,7 +41,6 @@ Future<List<Log>> getPanelTodayLogs(Panel panel) async{
     }
   });
 
-//  result.sort((l1, l2) => l1.time.compareTo(l2.time));
   return result;
 }
 
@@ -63,11 +61,9 @@ Future<List<Log>> getAlllHistoryLogs(BuildContext context) async{
         resultLog.produced = resultLog.produced + log.produced;
       }
     }
-
     result.add(resultLog);
   };
 
-  result.sort((l1, l2) => l1.date.compareTo(l2.date));
   return result;
 }
 
@@ -88,10 +84,8 @@ Future<List<Log>> getAlllTodayLogs(BuildContext context) async{
         resultLog.produced += log.produced;
       }
     }
-
     result.add(resultLog);
   });
 
-//  result.sort((l1, l2) => l1.time.compareTo(l2.time));
   return result;
 }
