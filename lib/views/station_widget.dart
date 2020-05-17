@@ -1,3 +1,4 @@
+import 'package:SUNMAX/helpers/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:SUNMAX/database/database.dart';
 import 'package:SUNMAX/helpers/utils.dart';
@@ -31,10 +32,12 @@ class _StationWidgetState extends State<StationWidget> {
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
         Expanded(
+          flex: 2,
           child: Container(
             color: Colors.red,
             child: Image.asset(
               "assets/images/panels.png",
+              fit: BoxFit.fitWidth,
             ),
           ),
         ),
@@ -43,46 +46,25 @@ class _StationWidgetState extends State<StationWidget> {
           height: 20,
           color: Colors.black,
         ),
-//        Expanded(
-//          child: FlatButton(
-//            child: Container(
-//              color: Colors.yellow,
-//              child: Image.asset(
-//                _accumulator.stationConnection == 1
-//                  ? "assets/images/switch/h_switch_on.png"
-//                  : "assets/images/switch/h_switch_off.png",
-//                fit: BoxFit.fitWidth,
-//              ),
-//            ),
-//            onPressed: () async {
-//              _accumulator.stationConnection =
-//                1 - _accumulator.stationConnection;
-//              await DBProvider.db.switchStation(_accumulator);
-//              setState(() {
-//                _accumulator = _accumulator;
-//              });
-//            },
-//          ),
-//        ),
-        FlatButton(
-          padding: EdgeInsets.zero,
-          child: Container(
-            color: Colors.yellow,
+        Expanded(
+          flex: w > mediumLimit ? 0 : 1,
+          child: FlatButton(
+            padding: EdgeInsets.zero,
             child: Image.asset(
               _accumulator.stationConnection == 1
                 ? "assets/images/switch/h_switch_on.png"
                 : "assets/images/switch/h_switch_off.png",
               fit: BoxFit.fitWidth,
             ),
+            onPressed: () async {
+              _accumulator.stationConnection =
+                1 - _accumulator.stationConnection;
+              await DBProvider.db.switchStation(_accumulator);
+              setState(() {
+                _accumulator = _accumulator;
+              });
+            },
           ),
-          onPressed: () async {
-            _accumulator.stationConnection =
-              1 - _accumulator.stationConnection;
-            await DBProvider.db.switchStation(_accumulator);
-            setState(() {
-              _accumulator = _accumulator;
-            });
-          },
         ),
         Container(
           width: 2,
@@ -90,8 +72,14 @@ class _StationWidgetState extends State<StationWidget> {
           color: Colors.black,
         ),
         Expanded(
-          child: Image.asset(
-            "assets/images/accumulator.png",
+          flex: 2,
+          child: GridView.count(
+            shrinkWrap: true,
+            crossAxisCount: 2,
+            children: [0,1,2,3].map((e) => Image.asset(
+              "assets/images/accumulator.png",
+              fit: BoxFit.fitWidth,
+            )).toList(),
           ),
         ),
         Container(
@@ -99,40 +87,25 @@ class _StationWidgetState extends State<StationWidget> {
           height: 20,
           color: Colors.black,
         ),
-//        Expanded(
-//          child: FlatButton(
-//            child: Image.asset(
-//              _accumulator.gridConnection == 1
-//                ? "assets/images/switch/h_switch_on.png"
-//                : "assets/images/switch/h_switch_off.png",
-//            ),
-//            onPressed: () async {
-//              _accumulator.gridConnection = 1 - _accumulator.gridConnection;
-//              await DBProvider.db.switchGrid(_accumulator);
-//
-//              setState(() {
-//                _accumulator = _accumulator;
-//              });
-//            },
-//          ),
-//        ),
-        FlatButton(
-          padding: EdgeInsets.zero,
-          child: Container(
+        Expanded(
+          flex: w > mediumLimit ? 0 : 1,
+          child: FlatButton(
+            padding: EdgeInsets.zero,
             child: Image.asset(
               _accumulator.gridConnection == 1
                 ? "assets/images/switch/h_switch_on.png"
                 : "assets/images/switch/h_switch_off.png",
+              fit: BoxFit.fitWidth,
             ),
-          ),
-          onPressed: () async {
-            _accumulator.gridConnection = 1 - _accumulator.gridConnection;
-            await DBProvider.db.switchGrid(_accumulator);
+            onPressed: () async {
+              _accumulator.gridConnection = 1 - _accumulator.gridConnection;
+              await DBProvider.db.switchGrid(_accumulator);
 
-            setState(() {
-              _accumulator = _accumulator;
-            });
-          },
+              setState(() {
+                _accumulator = _accumulator;
+              });
+            },
+          ),
         ),
         Container(
           width: 2,
@@ -140,8 +113,10 @@ class _StationWidgetState extends State<StationWidget> {
           color: Colors.black,
         ),
         Expanded(
+          flex: 2,
           child: Image.asset(
             "assets/images/grid.png",
+            fit: BoxFit.fitWidth,
           ),
         ),
       ],
