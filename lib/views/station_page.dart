@@ -1,5 +1,6 @@
 import 'package:SUNMAX/views/diagram_widget.dart';
 import 'package:SUNMAX/views/history_widget.dart';
+import 'package:SUNMAX/views/power_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:SUNMAX/database/database.dart';
 import 'package:SUNMAX/model/notifiers/login_notifier.dart';
@@ -23,6 +24,17 @@ class StationPage extends StatelessWidget{
                 children: <Widget>[
                   StationWidget(
                     accumulator: snapshot.data as acc.Accumulator,
+                  ),
+
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      Text("Поточна потужність станції"),
+                      SizedBox(
+                        width: 20,
+                      ),
+                      PowerWidget(),
+                    ],
                   ),
 
                   DiagramWidget(),

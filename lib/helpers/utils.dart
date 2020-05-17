@@ -89,3 +89,12 @@ Future<List<Log>> getAlllTodayLogs(BuildContext context) async{
 
   return result;
 }
+
+Future<double> getRequiredPower(BuildContext context, {Panel panel}) async{
+  final user = Provider.of<LoginNotifier>(context, listen: false).user;
+  final power = panel == null
+    ? await DBProvider.db.getPanelsTotalPower(user.id)
+    : await DBProvider.db.getPanelPower(panel);
+
+  return power;
+}
