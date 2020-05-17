@@ -79,7 +79,7 @@ class DiagramWidget extends StatelessWidget {
                 height: 10,
               ),
               w < mediumLimit ? Column(
-                children: legendItems.map((el) =>
+                children: list.map((el) =>
                   Row(
                     children: <Widget>[
                       Container(
@@ -90,9 +90,9 @@ class DiagramWidget extends StatelessWidget {
                         ),
                         width: 20,
                         height: 20,
-                        color: el['color'],
+                        color: legendItems[el]['color'],
                       ),
-                      Text(el['title'])
+                      Text(legendItems[el]['title'])
                     ],
                   )).toList()
               ) : Container(),

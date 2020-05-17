@@ -33,12 +33,9 @@ class _StationWidgetState extends State<StationWidget> {
       children: <Widget>[
         Expanded(
           flex: 2,
-          child: Container(
-            color: Colors.red,
-            child: Image.asset(
-              "assets/images/panels.png",
-              fit: BoxFit.fitWidth,
-            ),
+          child: Image.asset(
+            "assets/images/panels.png",
+            fit: BoxFit.fitWidth,
           ),
         ),
         Container(
@@ -73,14 +70,10 @@ class _StationWidgetState extends State<StationWidget> {
         ),
         Expanded(
           flex: 2,
-          child: GridView.count(
-            shrinkWrap: true,
-            crossAxisCount: 2,
-            children: [0,1,2,3].map((e) => Image.asset(
-              "assets/images/accumulator.png",
-              fit: BoxFit.fitWidth,
-            )).toList(),
-          ),
+          child: Image.asset(
+            "assets/images/battery.png",
+            fit: BoxFit.fitWidth,
+          )
         ),
         Container(
           width: 2,
