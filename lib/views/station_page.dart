@@ -1,7 +1,7 @@
+import 'package:SUNMAX/views/diagram_widget.dart';
+import 'package:SUNMAX/views/history_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:SUNMAX/database/database.dart';
-import 'package:SUNMAX/helpers/constants.dart';
-import 'package:SUNMAX/helpers/utils.dart';
 import 'package:SUNMAX/model/notifiers/login_notifier.dart';
 import 'package:SUNMAX/model/user_model.dart';
 import 'package:SUNMAX/model/accumulator_model.dart' as acc;
@@ -12,21 +12,29 @@ class StationPage extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     User user = Provider.of<LoginNotifier>(context).user;
-//    double w = getWidth(context);
-//    int count = 1;
-//    if (w >= smallLimit) {
-//      count = 2;
-//    }
-////    if (w >= mediumLimit) {
-////      count = 3;
-////    }
 
     return FutureBuilder(
       future: DBProvider.db.getAccumulator(user.id),
       builder:(context, snapshot) {
         if (snapshot.hasData) {
-          return StationWidget(
-            accumulator: snapshot.data as acc.Accumulator,
+          return SingleChildScrollView(
+            child: Container(
+              child: Column(
+                children: <Widget>[
+                  StationWidget(
+                    accumulator: snapshot.data as acc.Accumulator,
+                  ),
+
+                  DiagramWidget(),
+
+                  SizedBox(
+                    height: 30,
+                  ),
+
+                  HistoryWidget(),
+                ],
+              ),
+            ),
           );
         }
         else {
