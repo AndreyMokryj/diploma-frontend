@@ -31,8 +31,11 @@ class _StationWidgetState extends State<StationWidget> {
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
         Expanded(
-          child: Image.asset(
-            "assets/images/panels.png",
+          child: Container(
+            color: Colors.red,
+            child: Image.asset(
+              "assets/images/panels.png",
+            ),
           ),
         ),
         Container(
@@ -40,22 +43,46 @@ class _StationWidgetState extends State<StationWidget> {
           height: 20,
           color: Colors.black,
         ),
-        Expanded(
-          child: FlatButton(
+//        Expanded(
+//          child: FlatButton(
+//            child: Container(
+//              color: Colors.yellow,
+//              child: Image.asset(
+//                _accumulator.stationConnection == 1
+//                  ? "assets/images/switch/h_switch_on.png"
+//                  : "assets/images/switch/h_switch_off.png",
+//                fit: BoxFit.fitWidth,
+//              ),
+//            ),
+//            onPressed: () async {
+//              _accumulator.stationConnection =
+//                1 - _accumulator.stationConnection;
+//              await DBProvider.db.switchStation(_accumulator);
+//              setState(() {
+//                _accumulator = _accumulator;
+//              });
+//            },
+//          ),
+//        ),
+        FlatButton(
+          padding: EdgeInsets.zero,
+          child: Container(
+            color: Colors.yellow,
             child: Image.asset(
               _accumulator.stationConnection == 1
                 ? "assets/images/switch/h_switch_on.png"
                 : "assets/images/switch/h_switch_off.png",
+              fit: BoxFit.fitWidth,
             ),
-            onPressed: () async {
-              _accumulator.stationConnection =
-                1 - _accumulator.stationConnection;
-              await DBProvider.db.switchStation(_accumulator);
-              setState(() {
-                _accumulator = _accumulator;
-              });
-            },
           ),
+          onPressed: () async {
+            _accumulator.stationConnection =
+              1 - _accumulator.stationConnection;
+            await DBProvider.db.switchStation(_accumulator);
+            setState(() {
+              _accumulator = _accumulator;
+            });
+          },
         ),
         Container(
           width: 2,
@@ -72,22 +99,40 @@ class _StationWidgetState extends State<StationWidget> {
           height: 20,
           color: Colors.black,
         ),
-        Expanded(
-          child: FlatButton(
+//        Expanded(
+//          child: FlatButton(
+//            child: Image.asset(
+//              _accumulator.gridConnection == 1
+//                ? "assets/images/switch/h_switch_on.png"
+//                : "assets/images/switch/h_switch_off.png",
+//            ),
+//            onPressed: () async {
+//              _accumulator.gridConnection = 1 - _accumulator.gridConnection;
+//              await DBProvider.db.switchGrid(_accumulator);
+//
+//              setState(() {
+//                _accumulator = _accumulator;
+//              });
+//            },
+//          ),
+//        ),
+        FlatButton(
+          padding: EdgeInsets.zero,
+          child: Container(
             child: Image.asset(
               _accumulator.gridConnection == 1
                 ? "assets/images/switch/h_switch_on.png"
                 : "assets/images/switch/h_switch_off.png",
             ),
-            onPressed: () async {
-              _accumulator.gridConnection = 1 - _accumulator.gridConnection;
-              await DBProvider.db.switchGrid(_accumulator);
-
-              setState(() {
-                _accumulator = _accumulator;
-              });
-            },
           ),
+          onPressed: () async {
+            _accumulator.gridConnection = 1 - _accumulator.gridConnection;
+            await DBProvider.db.switchGrid(_accumulator);
+
+            setState(() {
+              _accumulator = _accumulator;
+            });
+          },
         ),
         Container(
           width: 2,
