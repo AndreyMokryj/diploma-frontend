@@ -1,7 +1,10 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:SUNMAX/helpers/utils.dart';
 import 'package:SUNMAX/model/panel_model.dart';
 import 'package:SUNMAX/model/log_model.dart';
+import 'package:SUNMAX/helpers/constants.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class DiagramWidget extends StatelessWidget {
@@ -67,6 +70,7 @@ class DiagramWidget extends StatelessWidget {
               xValueMapper: (Log log, _) => log.time.substring(0, 2),
               yValueMapper: (Log log, _) => log.produced / 3600000,
               legendItemText: "Вироблено",
+              color: Colors.green,
             )
           ];
 
@@ -76,27 +80,79 @@ class DiagramWidget extends StatelessWidget {
               xValueMapper: (Log log, _) => log.time.substring(0, 2),
               yValueMapper: (Log log, _) => log.given / 3600000,
               legendItemText: "Продано",
+              color: Colors.orange,
             ));
           }
 
-          return Container(
-            height: h / 2,
-            child: SfCartesianChart(
-              primaryXAxis: CategoryAxis(
-                title: AxisTitle(
-                  text: 'Час',
-                )
+          return Column(
+            children: <Widget>[
+              Text("Виробіток сьогодні:"),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Container(
+                  width: max(w, mediumLimit * 1.0),
+                  child: SfCartesianChart(
+                    primaryXAxis: CategoryAxis(
+//                      title: AxisTitle(
+//                        text: 'Час',
+//                      )
+                    ),
+                    primaryYAxis: NumericAxis(
+                      title: AxisTitle(
+                        text: 'кВат * год',
+                      )
+                    ),
+//                title: ChartTitle(text: 'Виробіток сьогодні:'),
+                    legend: Legend(isVisible: w >= mediumLimit),
+                    tooltipBehavior: TooltipBehavior(enable: true),
+                    series: series,
+                  )
+                ),
               ),
-              primaryYAxis: NumericAxis(
-                title: AxisTitle(
-                  text: 'кВат * год',
-                )
+              Text("Час"),
+              SizedBox(
+                height: 10,
               ),
-              title: ChartTitle(text: 'Виробіток сьогодні:'),
-              legend: Legend(isVisible: true),
-              tooltipBehavior: TooltipBehavior(enable: true),
-              series: series,
-            )
+              w < mediumLimit ? Column(
+                children: <Widget>[
+                  Row(
+                    children: <Widget>[
+                      SizedBox(
+                        width: 20,
+                      ),
+                      Container(
+                        width: 20,
+                        height: 20,
+                        color: Colors.green,
+                      ),
+                      SizedBox(
+                        width: 20,
+                      ),
+                      Text("Вироблено")
+                    ],
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Row(
+                    children: <Widget>[
+                      SizedBox(
+                        width: 20,
+                      ),
+                      Container(
+                        width: 20,
+                        height: 20,
+                        color: Colors.orange,
+                      ),
+                      SizedBox(
+                        width: 20,
+                      ),
+                      Text("Продано")
+                    ],
+                  )
+                ],
+              ) : Container(),
+            ],
           );
         }
         else {
