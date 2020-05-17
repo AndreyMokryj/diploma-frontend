@@ -64,3 +64,5 @@ const legendItems = [
     'color': Colors.orange,
   },
 ];
+
+const refreshRate = Duration(seconds: 5);
