@@ -126,7 +126,7 @@
 		</data>
 		<key>Frameworks/App.framework/App</key>
 		<data>
-		Tvug/X1A5h/QySdqcfLzXc1zrcU=
+		vDNteZkwhLjZeRtIC8EyjREG/aQ=
 		</data>
 		<key>Frameworks/App.framework/Info.plist</key>
 		<data>
@@ -134,7 +134,7 @@
 		</data>
 		<key>Frameworks/App.framework/_CodeSignature/CodeResources</key>
 		<data>
-		G2TCJ1EQfhA4T3oloXFnUkVAhGM=
+		Ih56IrwZ76QsI69DsD+WYvUenAU=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.json</key>
 		<data>
@@ -190,7 +190,7 @@
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/kernel_blob.bin</key>
 		<data>
-		7AOr3JMAv8BNcmwi/AxGOSczZpg=
+		MqplecJWyALI2VYOG5GbDDmoeJM=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -290,7 +290,7 @@
 		</data>
 		<key>Frameworks/url_launcher.framework/url_launcher</key>
 		<data>
-		eS0qbnQYssA9gLvC+19Af89BAOc=
+		XOoC3WC4JInnnUqIwcu7cApnyEw=
 		</data>
 		<key>Info.plist</key>
 		<data>
@@ -637,11 +637,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Tvug/X1A5h/QySdqcfLzXc1zrcU=
+			vDNteZkwhLjZeRtIC8EyjREG/aQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			5K6bTLqabDWaPGtxI7rcpmaiSoIdOv2DKxv+GkiMd4w=
+			qBLYw05bGGydklAEMcoQfgax9pqBSFPUF9EsmuKpbj4=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/Info.plist</key>
@@ -659,11 +659,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			G2TCJ1EQfhA4T3oloXFnUkVAhGM=
+			Ih56IrwZ76QsI69DsD+WYvUenAU=
 			</data>
 			<key>hash2</key>
 			<data>
-			684lhSBzMz4DSdXZhD0gg3151r1B2b85pTBzWiiPjgg=
+			PgtbZ25bJ9ecpxUyK/d+cUr6KS/hOQBO1Lm9bY5k3oQ=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.json</key>
@@ -802,11 +802,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			7AOr3JMAv8BNcmwi/AxGOSczZpg=
+			MqplecJWyALI2VYOG5GbDDmoeJM=
 			</data>
 			<key>hash2</key>
 			<data>
-			6TdtbGrTYjqomX6HdqDYl0pYslurd30htdfW9kKUD9o=
+			oUcXimnkX8udQwRA5y8aenfs0illDl3Y1yrun/N/bBg=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
@@ -1077,11 +1077,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			eS0qbnQYssA9gLvC+19Af89BAOc=
+			XOoC3WC4JInnnUqIwcu7cApnyEw=
 			</data>
 			<key>hash2</key>
 			<data>
-			EbfB+Fj/kGhGk4/1710gcO9hTKiTKO0HzenANMS2AFQ=
+			YsRd7eqDroHZz1JOneCe81LE2gDACluHE01aeIhbTMI=
 			</data>
 		</dict>
 	</dict>

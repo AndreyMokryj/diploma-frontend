@@ -1,3 +1,4 @@
+import 'package:SUNMAX/views/power_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:SUNMAX/database/database.dart';
 import 'package:SUNMAX/helpers/utils.dart';
@@ -28,7 +29,6 @@ class _PanelWidgetState extends State<PanelWidget> {
 
     return Container(
       margin: EdgeInsets.all(4),
-//      color: panel.connected == 1 ? Colors.green : Colors.red,
       child: Row(
         children: <Widget>[
           Expanded(
@@ -42,15 +42,9 @@ class _PanelWidgetState extends State<PanelWidget> {
                     SizedBox(
                       width: 30,
                     ),
-                    FutureBuilder(
-                      future: DBProvider.db.getPanelPower(_panel),
-                      builder: (context, snapshot){
-                        if(snapshot.hasData){
-                          return Text("${formatDouble(snapshot.data as double, 2)} W");
-                        }
-                        return Container();
-                      },
-                    ),
+                    PowerWidget(
+                      panel: _panel,
+                    )
                   ],
                 ),
                 Text(_panel.model),
@@ -64,8 +58,6 @@ class _PanelWidgetState extends State<PanelWidget> {
               ],
             ),
           ),
-//          Expanded(
-//            child:
             Switch(
               value: _panel.connected == 1,
               onChanged: (val) async {
@@ -78,7 +70,6 @@ class _PanelWidgetState extends State<PanelWidget> {
                 }
               },
             ),
-//          )
         ],
       ),
     );

@@ -1,3 +1,4 @@
+import 'package:SUNMAX/views/power_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:SUNMAX/helpers/utils.dart';
 import 'package:SUNMAX/model/panel_model.dart';
@@ -19,7 +20,22 @@ class PanelPage extends StatelessWidget{
     return SingleChildScrollView(
       padding: EdgeInsets.all(20),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
+          Row(
+            children: <Widget>[
+              Text("${panel.name}"),
+              SizedBox(
+                width: 30,
+              ),
+              PowerWidget(
+                panel: panel,
+              )
+            ],
+          ),
+          Text(panel.model),
+          Text("${panel.nominalPower} W"),
+
           DiagramWidget(
             panel: panel,
           ),
