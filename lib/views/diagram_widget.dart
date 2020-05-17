@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:SUNMAX/helpers/utils.dart';
 import 'package:SUNMAX/model/panel_model.dart';

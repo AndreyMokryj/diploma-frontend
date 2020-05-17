@@ -63,5 +63,4 @@ const legendItems = [
     'title':'Продано',
     'color': Colors.orange,
   },
-
 ];
