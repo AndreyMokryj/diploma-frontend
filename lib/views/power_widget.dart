@@ -42,7 +42,7 @@ class _PowerWidgetState extends State<PowerWidget> {
       future: future,
       builder: (context, snapshot) {
         if (snapshot.hasData) {
-          return Text("${snapshot.data}");
+          return Text("${formatDouble(snapshot.data, 2)}");
         }
         return Container();
       }

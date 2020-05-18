@@ -22,6 +22,7 @@ class StationPage extends StatelessWidget{
             child: Container(
               child: Column(
                 children: <Widget>[
+                  Text("Моя станція"),
                   StationWidget(
                     accumulator: snapshot.data as acc.Accumulator,
                   ),
@@ -29,11 +30,12 @@ class StationPage extends StatelessWidget{
                   Row(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
-                      Text("Поточна потужність станції"),
+                      Text("Поточна потужність:"),
                       SizedBox(
                         width: 20,
                       ),
                       PowerWidget(),
+                      Text(" W"),
                     ],
                   ),
 
