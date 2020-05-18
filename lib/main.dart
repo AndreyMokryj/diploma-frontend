@@ -79,10 +79,10 @@ Route<dynamic> _getRoute(RouteSettings settings) {
           created: ((settings.arguments ?? "") as String) == "created",
         );
         break;
-      case '/signup' :
-        globalLoginNotifier.logOut();
-        page = SignupPage();
-        break;
+//      case '/signup' :
+//        globalLoginNotifier.logOut();
+//        page = SignupPage();
+//        break;
       case '/panels' :
         page = MainPage(
           name: 'panels',

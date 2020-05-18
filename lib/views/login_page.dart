@@ -103,27 +103,24 @@ class _LoginPageState extends State<LoginPage> {
                         Text(
                           errorMsg,
                           style: errorTextStyle,
-//                        textAlign: TextAlign.center,
                         ),
                         const SizedBox(height: 15.0),
 
                         FlatButton(
-                          //text: 'Войти',
                           child: Text(
                             'Увійти'
                           ),
                           onPressed: () => _submit(),
-
                         ),
-                        const SizedBox(height: 35.0),
-                        FlatButton(
-                          child: Text('Зареєструватися',
-                            style: TextStyle(fontFamily: 'PT Sans',
-                              fontSize: 14.0,
-                              color: Colors.black),),
-                          onPressed: () =>
-                            Navigator.of(context).pushNamed('/signup'),
-                        ),
+//                        const SizedBox(height: 35.0),
+//                        FlatButton(
+//                          child: Text('Зареєструватися',
+//                            style: TextStyle(fontFamily: 'PT Sans',
+//                              fontSize: 14.0,
+//                              color: Colors.black),),
+//                          onPressed: () =>
+//                            Navigator.of(context).pushNamed('/signup'),
+//                        ),
                       ],
                     ),
                   ),
