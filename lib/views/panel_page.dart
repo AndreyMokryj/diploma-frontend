@@ -1,4 +1,5 @@
 import 'package:SUNMAX/database/database.dart';
+import 'package:SUNMAX/helpers/constants.dart';
 import 'package:SUNMAX/views/power_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:SUNMAX/helpers/utils.dart';
@@ -29,6 +30,17 @@ class _PanelPageState extends State<PanelPage> {
     double w = getWidth(context);
     double h = getHeight(context);
 
+    int count = 1;
+    if(w >= smallLimit){
+      count += 1;
+    }
+    if(w >= mediumLimit){
+      count += 1;
+    }
+    if(w >= largeLimit){
+      count += 1;
+    }
+
     return SingleChildScrollView(
       padding: EdgeInsets.all(20),
       child: Column(
@@ -40,7 +52,9 @@ class _PanelPageState extends State<PanelPage> {
               SizedBox(
                 width: 10,
               ),
-              Expanded(child: Text("${widget.panel.name}")),
+              Expanded(
+                flex: count,
+                child: Text("${widget.panel.name}")),
             ],
           ),
           Divider(),
@@ -50,7 +64,9 @@ class _PanelPageState extends State<PanelPage> {
               SizedBox(
                 width: 10,
               ),
-              Expanded(child: Text("${widget.panel.model}")),
+              Expanded(
+                flex: count,
+                child: Text("${widget.panel.model}")),
             ],
           ),
           Divider(),
@@ -60,7 +76,9 @@ class _PanelPageState extends State<PanelPage> {
               SizedBox(
                 width: 10,
               ),
-              Expanded(child: Text("${widget.panel.nominalPower} W")),
+              Expanded(
+                flex: count,
+                child: Text("${widget.panel.nominalPower} W")),
             ],
           ),
           Divider(),
@@ -71,6 +89,7 @@ class _PanelPageState extends State<PanelPage> {
                 width: 10,
               ),
               Expanded(
+                flex: count,
                 child: Row(
                   children: <Widget>[
                     PowerWidget(
@@ -90,6 +109,7 @@ class _PanelPageState extends State<PanelPage> {
                 width: 10,
               ),
               Expanded(
+                flex: count,
                 child: Row(
                   children: <Widget>[
                     Text(
