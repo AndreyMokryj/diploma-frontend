@@ -85,7 +85,7 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                         Row(
                           children: <Widget>[
                             Expanded(
-                              child: Text(e.date),
+                              child: Text(formatDate(e.date)),
                             ),
                             Expanded(
                               flex: count,

@@ -1,3 +1,4 @@
+import 'package:SUNMAX/helpers/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:SUNMAX/database/database.dart';
 import 'package:SUNMAX/model/log_model.dart';
@@ -125,4 +126,13 @@ Future<double> getTodayGivenEnergy(BuildContext context, {Panel panel}) async{
 
   work = work / 3600000;
   return work;
+}
+
+String formatDate( String date){
+  List<String> dates = date.split('-');
+  final year = dates[0];
+  final month = monthNames[dates[1]];
+  final day = dates[2];
+
+  return '$day $month $year';
 }
