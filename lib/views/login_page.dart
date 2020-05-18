@@ -101,16 +101,26 @@ class _LoginPageState extends State<LoginPage> {
                         autovalidate: validate,
                         onSaved: (val) => newUser.password = val,
                       ),
-                      SizedBox(height: 15.0),
+                      SizedBox(height: 10.0),
                       Text(
                         errorMsg,
                         style: errorTextStyle,
                       ),
-                      const SizedBox(height: 15.0),
+                      SizedBox(height: 10.0),
 
                       FlatButton(
-                        child: Text(
-                          'Увійти'
+                        color: Colors.green,
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6.0)),
+                        child: SizedBox(
+                          height: 50,
+                          child: Align(
+                            child: Text(
+                              'Увійти',
+                              style: TextStyle(
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
                         ),
                         onPressed: () => _submit(),
                       ),

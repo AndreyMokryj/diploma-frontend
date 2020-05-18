@@ -33,6 +33,9 @@ class DBProvider {
         'content-type': 'application/json'
       }
     );
+    if (response.body == ""){
+      return null;
+    }
 
     final responseBody = jsonDecode(response.body);
     return u.User.fromMap(responseBody);
