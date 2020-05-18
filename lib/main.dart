@@ -26,6 +26,9 @@ class MyApp extends StatelessWidget {
 
             // ListTile
             subtitle1: bigTextStyle,
+
+            //Buttons
+            button: normalTextStyle,
           ),
         ),
         home: MainPage(),
