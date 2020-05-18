@@ -1,3 +1,4 @@
+import 'package:SUNMAX/helpers/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:SUNMAX/model/notifiers/login_notifier.dart';
@@ -19,6 +20,13 @@ class MyApp extends StatelessWidget {
         title: 'SUNMAX',
         theme: ThemeData(
           primarySwatch: Colors.blue,
+          textTheme: TextTheme(
+            // Regular text
+            bodyText2: normalTextStyle,
+
+            // ListTile
+            subtitle1: bigTextStyle,
+          ),
         ),
         home: MainPage(),
         initialRoute: '/',

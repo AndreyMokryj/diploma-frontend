@@ -1,6 +1,8 @@
 import 'package:SUNMAX/helpers/constants.dart';
 import 'package:flutter/material.dart';
 
+const hugeTextStyle = const TextStyle(fontFamily: 'SF UI Text', fontSize: 40, color: Color.fromRGBO(50, 50, 50, 1.0));
+const bigTextStyle = const TextStyle(fontFamily: 'SF UI Text', fontSize: 20, color: Color.fromRGBO(50, 50, 50, 1.0));
 const normalTextStyle = const TextStyle(fontFamily: 'SF UI Text', fontSize: 16, color: Color.fromRGBO(50, 50, 50, 1.0));
 const lightTextStyle = const TextStyle(fontFamily: 'SF UI Text', fontSize: 14, color: Color.fromRGBO(128, 128, 128, 1.0));
 const errorTextStyle = const TextStyle(fontFamily: 'SF UI Text', fontSize: 14, color: Color.fromRGBO(255, 0, 0, 1.0));
