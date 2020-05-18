@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bb966b89-b0bc-4214-ae4e-137a1f6be559" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/views/panel_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/panel_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/history_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/history_widget.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/views/station_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/station_page.dart" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,6 +22,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="ProjectId" id="1aUySOpr8oPGhAGkWmuaEcTF15F" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">

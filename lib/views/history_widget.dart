@@ -57,7 +57,9 @@ class _HistoryWidgetState extends State<HistoryWidget> {
 
               return Column(
                 children: <Widget>[
-                  Divider(),
+                  Divider(
+                    thickness: 1.1,
+                  ),
                   Row(
                     children: <Widget>[
                       Expanded(
