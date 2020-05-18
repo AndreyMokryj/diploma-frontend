@@ -1,3 +1,4 @@
+import 'package:SUNMAX/helpers/styles.dart';
 import 'package:SUNMAX/views/refreshable_number_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:SUNMAX/database/database.dart';
@@ -45,11 +46,21 @@ class _PanelWidgetState extends State<PanelWidget> {
                     RefreshableNumberWidget(
                       future: getRequiredPower,
                       panel: _panel,
-                    )
+                    ),
+                    Text(" W"),
                   ],
                 ),
-                Text(_panel.model),
-                Text("${_panel.nominalPower} W"),
+                SizedBox(
+                  height: 10,
+                ),
+                Text(
+                  _panel.model,
+                  style: lightTextStyle,
+                ),
+                Text(
+                  "${_panel.nominalPower} W",
+                  style: lightTextStyle,
+                ),
                 FlatButton(
                   child: Text("Деталі"),
                   onPressed: (){
