@@ -160,7 +160,9 @@ class _PanelPageState extends State<PanelPage> {
               ),
             ],
           ),
-          Divider(),
+          Divider(
+            thickness: 1.1,
+          ),
           SizedBox(
             height: 20,
           ),
@@ -170,11 +172,15 @@ class _PanelPageState extends State<PanelPage> {
           SizedBox(
             height: 30,
           ),
-          Divider(),
+          Divider(
+            thickness: 1.1,
+          ),
           HistoryWidget(
             panel: widget.panel,
           ),
-          Divider(),
+          Divider(
+            thickness: 1.1,
+          ),
         ],
       ),
     );
