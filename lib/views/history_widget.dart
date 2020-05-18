@@ -51,6 +51,7 @@ class _HistoryWidgetState extends State<HistoryWidget> {
 
               return Column(
                 children: <Widget>[
+                  Divider(),
                   Row(
                     children: <Widget>[
                       Expanded(
@@ -82,35 +83,40 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                   ),
                 ] +
                   logMaps.map((e) {
-                    return Row(
+                    return Column(
                       children: <Widget>[
-                        Expanded(
-                          child: Text(e.date),
-                        ),
-                        Container(
-                          width: 2,
-                          color: Colors.black,
-                        ),
-                        Expanded(
-                          child: Text(
-                            "${formatDouble(e.produced / 3600000, 2)}"),
-                        ),
-                        widget.panel == null
-                          ? Expanded(
-                          child: Row(
-                            children: <Widget>[
-                              Container(
-                                width: 2,
-                                color: Colors.black,
+                        Divider(),
+                        Row(
+                          children: <Widget>[
+                            Expanded(
+                              child: Text(e.date),
+                            ),
+                            Container(
+                              width: 2,
+                              color: Colors.black,
+                            ),
+                            Expanded(
+                              child: Text(
+                                "${formatDouble(e.produced / 3600000, 2)}"),
+                            ),
+                            widget.panel == null
+                              ? Expanded(
+                              child: Row(
+                                children: <Widget>[
+                                  Container(
+                                    width: 2,
+                                    color: Colors.black,
+                                  ),
+                                  Expanded(
+                                    child: Text(
+                                      "${formatDouble(e.given / 3600000, 2)}"),
+                                  ),
+                                ],
                               ),
-                              Expanded(
-                                child: Text(
-                                  "${formatDouble(e.given / 3600000, 2)}"),
-                              ),
-                            ],
-                          ),
-                        )
-                          : Container(),
+                            )
+                              : Container(),
+                          ],
+                        ),
                       ],
                     );
                   }
