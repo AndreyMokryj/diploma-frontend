@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:SUNMAX/helpers/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:SUNMAX/helpers/utils.dart';
 import 'package:SUNMAX/model/panel_model.dart';
@@ -99,7 +100,10 @@ class _DiagramWidgetState extends State<DiagramWidget> {
                   )
                 ),
               ),
-              Text("Час"),
+              Text(
+                "Час",
+                style: littleTextStyle,
+              ),
 
               w < mediumLimit ? Column(
                 children: list.map((el) =>
@@ -115,7 +119,10 @@ class _DiagramWidgetState extends State<DiagramWidget> {
                         height: 20,
                         color: legendItems[el]['color'],
                       ),
-                      Text(legendItems[el]['title'])
+                      Text(
+                        legendItems[el]['title'],
+                        style: littleTextStyle,
+                      )
                     ],
                   )).toList()
               ) : Container(),

@@ -6,7 +6,7 @@ const bigTextStyle = const TextStyle(fontFamily: 'SF UI Text', fontSize: 20, col
 const normalTextStyle = const TextStyle(fontFamily: 'SF UI Text', fontSize: 16, color: Color.fromRGBO(50, 50, 50, 1.0));
 const lightTextStyle = const TextStyle(fontFamily: 'SF UI Text', fontSize: 14, color: Color.fromRGBO(128, 128, 128, 1.0));
 const errorTextStyle = const TextStyle(fontFamily: 'SF UI Text', fontSize: 14, color: Color.fromRGBO(255, 0, 0, 1.0));
-const littleTextStyle = const TextStyle(fontFamily: 'SF UI Text', fontSize: 11, color: Color.fromRGBO(50, 50, 50, 1.0));
+const littleTextStyle = const TextStyle(fontFamily: 'SF UI Text', fontSize: 15, color: Color.fromRGBO(50, 50, 50, 1.0));
 
 class AppDecoration extends InputDecoration {
   const AppDecoration({
