@@ -5,17 +5,17 @@ import 'package:SUNMAX/helpers/utils.dart';
 import 'package:SUNMAX/model/panel_model.dart';
 import 'package:SUNMAX/helpers/constants.dart';
 
-class RefreshablePowerWidget extends StatefulWidget {
+class RefreshableNumberWidget extends StatefulWidget {
   final Panel panel;
   final future;
 
-  const RefreshablePowerWidget({Key key, this.panel, this.future}) : super(key: key);
+  const RefreshableNumberWidget({Key key, this.panel, this.future}) : super(key: key);
 
   @override
-  _RefreshablePowerWidgetState createState() => _RefreshablePowerWidgetState();
+  _RefreshableNumberWidgetState createState() => _RefreshableNumberWidgetState();
 }
 
-class _RefreshablePowerWidgetState extends State<RefreshablePowerWidget> {
+class _RefreshableNumberWidgetState extends State<RefreshableNumberWidget> {
   Timer _timer;
 
   @override

@@ -98,3 +98,31 @@ Future<double> getRequiredPower(BuildContext context, {Panel panel}) async{
 
   return power;
 }
+
+Future<double> getTodayProducedEnergy(BuildContext context, {Panel panel}) async{
+  final logs = panel == null
+    ? await getAlllTodayLogs(context)
+    : await getPanelTodayLogs(panel);
+
+  double work = 0.0;
+  logs.forEach((element) {
+    work += element.produced;
+  });
+
+  work = work / 3600000;
+  return work;
+}
+
+Future<double> getTodayGivenEnergy(BuildContext context, {Panel panel}) async{
+  final logs = panel == null
+    ? await getAlllTodayLogs(context)
+    : await getPanelTodayLogs(panel);
+
+  double work = 0.0;
+  logs.forEach((element) {
+    work += element.given;
+  });
+
+  work = work / 3600000;
+  return work;
+}

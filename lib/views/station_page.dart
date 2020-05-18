@@ -1,7 +1,7 @@
 import 'package:SUNMAX/helpers/utils.dart';
 import 'package:SUNMAX/views/diagram_widget.dart';
 import 'package:SUNMAX/views/history_widget.dart';
-import 'package:SUNMAX/views/refreshable_power_widget.dart';
+import 'package:SUNMAX/views/refreshable_number_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:SUNMAX/database/database.dart';
 import 'package:SUNMAX/model/notifiers/login_notifier.dart';
@@ -42,10 +42,37 @@ class StationPage extends StatelessWidget{
                       SizedBox(
                         width: 20,
                       ),
-                      RefreshablePowerWidget(
+                      RefreshableNumberWidget(
                         future: getRequiredPower,
                       ),
                       Text(" W"),
+                    ],
+                  ),
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      Text("Вироблено з початку дня:"),
+                      SizedBox(
+                        width: 20,
+                      ),
+                      RefreshableNumberWidget(
+                        future: getTodayProducedEnergy,
+                      ),
+                      Text(" кВат * год"),
+                    ],
+                  ),
+
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      Text("Продано з початку дня:"),
+                      SizedBox(
+                        width: 20,
+                      ),
+                      RefreshableNumberWidget(
+                        future: getTodayGivenEnergy,
+                      ),
+                      Text(" кВат * год"),
                     ],
                   ),
 
