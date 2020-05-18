@@ -67,3 +67,5 @@ const legendItems = [
 ];
 
 const refreshRate = Duration(seconds: 5);
+
+const buttonColor = Colors.blue;

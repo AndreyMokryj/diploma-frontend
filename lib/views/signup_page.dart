@@ -46,7 +46,7 @@ class _SignupPageState extends State<SignupPage> {
                       ),
                       const SizedBox(height: 12.0),
                       TextFormField(
-                        style: fieldTextStyle,
+                        style: normalTextStyle,
                         enabled: true,
                         decoration: AppDecoration(
                           labelText: "Ім'я користувача",
@@ -60,7 +60,7 @@ class _SignupPageState extends State<SignupPage> {
                       ),
                       const SizedBox(height: 20.0),
                       TextFormField(
-                        style: fieldTextStyle,
+                        style: normalTextStyle,
                         enabled: true,
                         decoration: AppDecoration(
                           labelText: 'Пароль',

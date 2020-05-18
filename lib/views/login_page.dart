@@ -61,7 +61,7 @@ class _LoginPageState extends State<LoginPage> {
               padding: EdgeInsets.all(10.0),
               child: Center(
                 child: Container(
-                  width: w > smallLimit ? 500 : w,
+                  width: w > smallLimit ? 450 : w,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: <Widget>[
@@ -71,7 +71,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       const SizedBox(height: 12.0),
                       TextFormField(
-                        style: fieldTextStyle,
+                        style: normalTextStyle,
                         enabled: true,
                         decoration: AppDecoration(
                           labelText: "Ім'я користувача",
@@ -87,7 +87,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       const SizedBox(height: 20.0),
                       TextFormField(
-                        style: fieldTextStyle,
+                        style: normalTextStyle,
                         enabled: true,
                         decoration: AppDecoration(
                           labelText: 'Пароль',
@@ -109,7 +109,7 @@ class _LoginPageState extends State<LoginPage> {
                       SizedBox(height: 10.0),
 
                       FlatButton(
-                        color: Colors.green,
+                        color: buttonColor,
                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6.0)),
                         child: SizedBox(
                           height: 50,
@@ -118,6 +118,7 @@ class _LoginPageState extends State<LoginPage> {
                               'Увійти',
                               style: TextStyle(
                                 color: Colors.white,
+                                fontSize: 16
                               ),
                             ),
                           ),
