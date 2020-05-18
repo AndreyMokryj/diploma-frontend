@@ -1,4 +1,3 @@
-import 'package:SUNMAX/helpers/constants.dart';
 import 'package:SUNMAX/helpers/styles.dart';
 import 'package:SUNMAX/views/refreshable_number_widget.dart';
 import 'package:flutter/material.dart';
@@ -30,7 +29,19 @@ class _PanelWidgetState extends State<PanelWidget> {
     double h = getHeight(context);
 
     return Container(
-      margin: EdgeInsets.all(4),
+      margin: EdgeInsets.only(
+        top: 5,
+        left: 5,
+        right: 5,
+        bottom: 10,
+      ),
+      padding: EdgeInsets.all(5),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        border: Border.all(
+          color: Colors.orange,
+        )
+      ),
       child: Row(
         children: <Widget>[
           Expanded(
@@ -69,19 +80,13 @@ class _PanelWidgetState extends State<PanelWidget> {
                     bottom: 5,
                   ),
                   child: FlatButton(
-//                  color: buttonColor,
                     color: Colors.red,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(40),
-//                    side: BorderSide(
-//                      width: 2,
-//                      color: buttonColor,
-//                    )
                     ),
                     child: Text(
                       "Деталі",
                       style: TextStyle(
-//                      color: buttonColor,
                         color: Colors.white,
                       ),
                     ),
