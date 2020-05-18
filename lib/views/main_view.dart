@@ -19,12 +19,11 @@ class MainView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Panel panel;
-    String title;
     double w = getWidth(context);
 
     return WillPopScope(
       onWillPop: () {
-        if(name == "details"){
+        if (name == "details") {
           Navigator.of(context).pushNamed("/panels");
         }
         else {
@@ -34,29 +33,31 @@ class MainView extends StatelessWidget {
         }
       },
       child: FutureBuilder(
-        future: panelId != null ? DBProvider.db.getPanel(panelId, Provider.of<LoginNotifier>(context, listen: false).user.id) : null,
+        future: panelId != null ? DBProvider.db.getPanel(panelId, Provider
+          .of<LoginNotifier>(context, listen: false)
+          .user
+          .id) : null,
         builder: (context, snapshot) {
-          if (snapshot.hasData){
+          if (snapshot.hasData) {
             panel = snapshot.data;
-            title = '${panel.name}';
           }
 
           if (snapshot.hasData || panelId == null) {
             return Scaffold(
               appBar: AppBar(
                 automaticallyImplyLeading: panelId != null,
-//                automaticallyImplyLeading: false,
-                title: Text(title ?? pageNames[name]),
+                title: Text(pageNames[name]),
                 centerTitle: true,
                 actions: <Widget>[
                   w <= largeLimit ?
                   Builder(
-                    builder: (context) => IconButton(
-                      icon: Icon(Icons.menu),
-                      onPressed: (){
-                        Scaffold.of(context).openEndDrawer();
-                      },
-                    ),
+                    builder: (context) =>
+                      IconButton(
+                        icon: Icon(Icons.menu),
+                        onPressed: () {
+                          Scaffold.of(context).openEndDrawer();
+                        },
+                      ),
                   ) : Container(),
                 ],
               ),
@@ -98,7 +99,7 @@ class MainView extends StatelessWidget {
               ) : null,
             );
           }
-          else{
+          else {
             return Container();
           }
         }

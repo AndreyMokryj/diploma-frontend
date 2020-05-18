@@ -6,6 +6,7 @@ const baseUrl = "http://localhost:4444/app/" ;
 const pageNames = {
   'home' : 'Головна',
   'panels' : 'Мої панелі',
+  'details' : 'Інформація про панель',
 };
 
 const monthNames = {
