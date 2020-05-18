@@ -1,3 +1,4 @@
+import 'package:SUNMAX/helpers/constants.dart';
 import 'package:SUNMAX/helpers/utils.dart';
 import 'package:SUNMAX/views/diagram_widget.dart';
 import 'package:SUNMAX/views/history_widget.dart';
@@ -14,6 +15,20 @@ class StationPage extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     User user = Provider.of<LoginNotifier>(context).user;
+
+    double w = getWidth(context);
+    double h = getHeight(context);
+
+    int count = 1;
+    if(w >= smallLimit){
+      count += 1;
+    }
+    if(w >= mediumLimit){
+      count += 1;
+    }
+    if(w >= largeLimit){
+      count += 1;
+    }
 
     return FutureBuilder(
       future: DBProvider.db.getAccumulator(user.id),
@@ -34,56 +49,73 @@ class StationPage extends StatelessWidget{
                   SizedBox(
                     height: 10,
                   ),
-                  
-                  Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      Text("Поточна потужність:"),
-                      SizedBox(
-                        width: 20,
-                      ),
-                      RefreshableNumberWidget(
-                        future: getRequiredPower,
-                      ),
-                      Text(" W"),
-                    ],
-                  ),
-                  Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      Text("Вироблено з початку дня:"),
-                      SizedBox(
-                        width: 20,
-                      ),
-                      RefreshableNumberWidget(
-                        future: getTodayProducedEnergy,
-                      ),
-                      Text(" кВат * год"),
-                    ],
-                  ),
 
                   Row(
-                    mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
-                      Text("Продано з початку дня:"),
+                      Expanded(child: Text("Поточна потужність:")),
                       SizedBox(
-                        width: 20,
+                        width: 10,
                       ),
-                      RefreshableNumberWidget(
-                        future: getTodayGivenEnergy,
+                      Expanded(
+                        flex: count,
+                        child: Row(
+                          children: <Widget>[
+                            RefreshableNumberWidget(
+                              future: getRequiredPower,
+                            ),
+                            Text(" W"),
+                          ],
+                        ),
                       ),
-                      Text(" кВат * год"),
                     ],
-                  ),
-
-                  SizedBox(
-                    height: 10,
                   ),
                   Divider(),
-                  SizedBox(
-                    height: 10,
+
+                  Row(
+                    children: <Widget>[
+                      Expanded(child: Text("Вироблено з початку дня:")),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Expanded(
+                        flex: count,
+                        child: Row(
+                          children: <Widget>[
+                            RefreshableNumberWidget(
+                              future: getTodayProducedEnergy,
+                            ),
+                            Text(" кВат * год"),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  Divider(),
+
+                  Row(
+                    children: <Widget>[
+                      Expanded(child: Text("Продано з початку дня:")),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Expanded(
+                        flex: count,
+                        child: Row(
+                          children: <Widget>[
+                            RefreshableNumberWidget(
+                              future: getTodayGivenEnergy,
+                            ),
+                            Text(" кВат * год"),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
 
+                  Divider(),
+                  SizedBox(
+                    height: 20,
+                  ),
                   DiagramWidget(),
                   SizedBox(
                     height: 20,

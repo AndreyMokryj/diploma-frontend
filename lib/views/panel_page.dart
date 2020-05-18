@@ -105,6 +105,27 @@ class _PanelPageState extends State<PanelPage> {
           Divider(),
           Row(
             children: <Widget>[
+              Expanded(child: Text("Вироблено з початку дня:")),
+              SizedBox(
+                width: 10,
+              ),
+              Expanded(
+                flex: count,
+                child: Row(
+                  children: <Widget>[
+                    RefreshableNumberWidget(
+                      future: getTodayProducedEnergy,
+                      panel: _panel,
+                    ),
+                    Text(" кВат * год"),
+                  ],
+                ),
+              ),
+            ],
+          ),
+          Divider(),
+          Row(
+            children: <Widget>[
               Expanded(child: Text("Статус:")),
               SizedBox(
                 width: 10,
