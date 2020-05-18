@@ -36,73 +36,83 @@ class _PanelPageState extends State<PanelPage> {
         children: <Widget>[
           Row(
             children: <Widget>[
-              Text("Назва панелі:"),
+              Expanded(child: Text("Назва панелі:")),
               SizedBox(
-                width: 30,
+                width: 10,
               ),
-              Text("${widget.panel.name}"),
-//              SizedBox(
-//                width: 30,
-//              ),
-//              PowerWidget(
-//                panel: widget.panel,
-//              )
+              Expanded(child: Text("${widget.panel.name}")),
             ],
           ),
           Row(
             children: <Widget>[
-              Text("Модель панелі:"),
+              Expanded(child: Text("Модель панелі:")),
               SizedBox(
-                width: 30,
+                width: 10,
               ),
-              Text("${widget.panel.model}"),
+              Expanded(child: Text("${widget.panel.model}")),
             ],
           ),
           Row(
             children: <Widget>[
-              Text("Номінальна потужність:"),
+              Expanded(child: Text("Номінальна потужність:")),
               SizedBox(
-                width: 30,
+                width: 10,
               ),
-              Text("${widget.panel.nominalPower} W"),
+              Expanded(child: Text("${widget.panel.nominalPower} W")),
             ],
           ),
           Row(
             children: <Widget>[
-              Text("Поточна потужність:"),
+              Expanded(child: Text("Поточна потужність:")),
               SizedBox(
-                width: 30,
+                width: 10,
               ),
-              PowerWidget(
-                panel: _panel,
-              ),
-              Text(" W"),
-            ],
-          ),
-          Row(
-            children: <Widget>[
-              Text("Статус:"),
-              SizedBox(
-                width: 30,
-              ),
-              Text(
-                _panel.connected == 1 ? "Підключено" : "Відключено",
-                style: TextStyle(
-                  color: _panel.connected == 1 ? Colors.green : Colors.red,
+              Expanded(
+                child: Row(
+                  children: <Widget>[
+                    PowerWidget(
+                      panel: _panel,
+                    ),
+                    Text(" W"),
+                  ],
                 ),
               ),
-              Switch(
-                value: _panel.connected == 1,
-                onChanged: (val) async {
-                  _panel.connected = val ? 1 : 0;
-                  bool s = await DBProvider.db.switchPanel(_panel);
-                  if (s){
-                    setState(() {
-                      _panel = _panel;
-                    });
-                  }
-                },
+            ],
+          ),
+          Row(
+            children: <Widget>[
+              Expanded(child: Text("Статус:")),
+              SizedBox(
+                width: 10,
               ),
+              Expanded(
+                child: Row(
+                  children: <Widget>[
+                    Text(
+                      _panel.connected == 1 ? "Підключено" : "Відключено",
+                      style: TextStyle(
+                        color: _panel.connected == 1 ? Colors.green : Colors.red,
+                      ),
+                    ),
+                    SizedBox(
+                      width: 20,
+                    ),
+                    Switch(
+                      value: _panel.connected == 1,
+                      onChanged: (val) async {
+                        _panel.connected = val ? 1 : 0;
+                        bool s = await DBProvider.db.switchPanel(_panel);
+                        if (s){
+                          setState(() {
+                            _panel = _panel;
+                          });
+                        }
+                      },
+                    ),
+                  ],
+                ),
+              ),
+
             ],
           ),
 
