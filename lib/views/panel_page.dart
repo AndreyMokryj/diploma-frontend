@@ -43,6 +43,7 @@ class _PanelPageState extends State<PanelPage> {
               Expanded(child: Text("${widget.panel.name}")),
             ],
           ),
+          Divider(),
           Row(
             children: <Widget>[
               Expanded(child: Text("Модель панелі:")),
@@ -52,6 +53,7 @@ class _PanelPageState extends State<PanelPage> {
               Expanded(child: Text("${widget.panel.model}")),
             ],
           ),
+          Divider(),
           Row(
             children: <Widget>[
               Expanded(child: Text("Номінальна потужність:")),
@@ -61,6 +63,7 @@ class _PanelPageState extends State<PanelPage> {
               Expanded(child: Text("${widget.panel.nominalPower} W")),
             ],
           ),
+          Divider(),
           Row(
             children: <Widget>[
               Expanded(child: Text("Поточна потужність:")),
@@ -79,6 +82,7 @@ class _PanelPageState extends State<PanelPage> {
               ),
             ],
           ),
+          Divider(),
           Row(
             children: <Widget>[
               Expanded(child: Text("Статус:")),
@@ -112,12 +116,11 @@ class _PanelPageState extends State<PanelPage> {
                   ],
                 ),
               ),
-
             ],
           ),
-
+          Divider(),
           SizedBox(
-            height: 30,
+            height: 20,
           ),
           DiagramWidget(
             panel: widget.panel,
@@ -125,10 +128,11 @@ class _PanelPageState extends State<PanelPage> {
           SizedBox(
             height: 30,
           ),
-
+          Divider(),
           HistoryWidget(
             panel: widget.panel,
-          )
+          ),
+          Divider(),
         ],
       ),
     );

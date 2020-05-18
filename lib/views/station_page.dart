@@ -47,16 +47,21 @@ class StationPage extends StatelessWidget{
                   ),
 
                   SizedBox(
-                    height: 20,
+                    height: 10,
+                  ),
+                  Divider(),
+                  SizedBox(
+                    height: 10,
                   ),
 
                   DiagramWidget(),
-
                   SizedBox(
                     height: 20,
                   ),
+                  Divider(),
 
                   HistoryWidget(),
+                  Divider(),
                 ],
               ),
             ),
