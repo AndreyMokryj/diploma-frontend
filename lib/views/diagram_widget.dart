@@ -100,9 +100,7 @@ class _DiagramWidgetState extends State<DiagramWidget> {
                 ),
               ),
               Text("Час"),
-              SizedBox(
-                height: 10,
-              ),
+
               w < mediumLimit ? Column(
                 children: list.map((el) =>
                   Row(

@@ -22,11 +22,18 @@ class StationPage extends StatelessWidget{
             child: Container(
               child: Column(
                 children: <Widget>[
-                  Text("Моя станція"),
+                  Container(
+                    padding: EdgeInsets.all(10),
+                    child: Text("Моя станція")
+                  ),
                   StationWidget(
                     accumulator: snapshot.data as acc.Accumulator,
                   ),
-
+                  
+                  SizedBox(
+                    height: 10,
+                  ),
+                  
                   Row(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -40,13 +47,13 @@ class StationPage extends StatelessWidget{
                   ),
 
                   SizedBox(
-                    height: 30,
+                    height: 20,
                   ),
 
                   DiagramWidget(),
 
                   SizedBox(
-                    height: 30,
+                    height: 20,
                   ),
 
                   HistoryWidget(),
