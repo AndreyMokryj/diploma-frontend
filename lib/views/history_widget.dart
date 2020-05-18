@@ -1,3 +1,4 @@
+import 'package:SUNMAX/helpers/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:SUNMAX/helpers/utils.dart';
 import 'package:SUNMAX/model/panel_model.dart';
@@ -24,6 +25,11 @@ class _HistoryWidgetState extends State<HistoryWidget> {
   Widget build(BuildContext context) {
     double w = getWidth(context);
     double h = getHeight(context);
+
+    int count = 1;
+    if(w >= mediumLimit){
+      count += 1;
+    }
 
     return Column(
       children: <Widget>[
@@ -57,26 +63,14 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                       Expanded(
                         child: Text("Дата"),
                       ),
-                      Container(
-                        width: 2,
-                        color: Colors.black,
-                      ),
                       Expanded(
+                        flex: count,
                         child: Text("Вироблено енергії, кВт-год"),
                       ),
                       widget.panel == null
                         ? Expanded(
-                        child: Row(
-                          children: <Widget>[
-                            Container(
-                              width: 2,
-                              color: Colors.black,
-                            ),
-                            Expanded(
-                              child: Text("Продано енергії, кВт-год"),
-                            ),
-                          ],
-                        ),
+                        flex: count,
+                        child: Text("Продано енергії, кВт-год"),
                       )
                         : Container(),
                     ],
@@ -91,28 +85,16 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                             Expanded(
                               child: Text(e.date),
                             ),
-                            Container(
-                              width: 2,
-                              color: Colors.black,
-                            ),
                             Expanded(
+                              flex: count,
                               child: Text(
-                                "${formatDouble(e.produced / 3600000, 2)}"),
+                                "${formatDouble(e.produced / 3600000, 2)}"
+                              ),
                             ),
                             widget.panel == null
                               ? Expanded(
-                              child: Row(
-                                children: <Widget>[
-                                  Container(
-                                    width: 2,
-                                    color: Colors.black,
-                                  ),
-                                  Expanded(
-                                    child: Text(
-                                      "${formatDouble(e.given / 3600000, 2)}"),
-                                  ),
-                                ],
-                              ),
+                              flex: count,
+                              child: Text("${formatDouble(e.given / 3600000, 2)}"),
                             )
                               : Container(),
                           ],
