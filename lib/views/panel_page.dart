@@ -1,6 +1,6 @@
 import 'package:SUNMAX/database/database.dart';
 import 'package:SUNMAX/helpers/constants.dart';
-import 'package:SUNMAX/views/power_widget.dart';
+import 'package:SUNMAX/views/refreshable_power_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:SUNMAX/helpers/utils.dart';
 import 'package:SUNMAX/model/panel_model.dart';
@@ -92,7 +92,7 @@ class _PanelPageState extends State<PanelPage> {
                 flex: count,
                 child: Row(
                   children: <Widget>[
-                    PowerWidget(
+                    RefreshablePowerWidget(
                       panel: _panel,
                     ),
                     Text(" W"),

@@ -1,6 +1,7 @@
+import 'package:SUNMAX/helpers/utils.dart';
 import 'package:SUNMAX/views/diagram_widget.dart';
 import 'package:SUNMAX/views/history_widget.dart';
-import 'package:SUNMAX/views/power_widget.dart';
+import 'package:SUNMAX/views/refreshable_power_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:SUNMAX/database/database.dart';
 import 'package:SUNMAX/model/notifiers/login_notifier.dart';
@@ -41,7 +42,9 @@ class StationPage extends StatelessWidget{
                       SizedBox(
                         width: 20,
                       ),
-                      PowerWidget(),
+                      RefreshablePowerWidget(
+                        future: getRequiredPower,
+                      ),
                       Text(" W"),
                     ],
                   ),

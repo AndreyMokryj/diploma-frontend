@@ -5,16 +5,17 @@ import 'package:SUNMAX/helpers/utils.dart';
 import 'package:SUNMAX/model/panel_model.dart';
 import 'package:SUNMAX/helpers/constants.dart';
 
-class PowerWidget extends StatefulWidget {
+class RefreshablePowerWidget extends StatefulWidget {
   final Panel panel;
+  final future;
 
-  const PowerWidget({Key key, this.panel}) : super(key: key);
+  const RefreshablePowerWidget({Key key, this.panel, this.future}) : super(key: key);
 
   @override
-  _PowerWidgetState createState() => _PowerWidgetState();
+  _RefreshablePowerWidgetState createState() => _RefreshablePowerWidgetState();
 }
 
-class _PowerWidgetState extends State<PowerWidget> {
+class _RefreshablePowerWidgetState extends State<RefreshablePowerWidget> {
   Timer _timer;
 
   @override
@@ -34,12 +35,8 @@ class _PowerWidgetState extends State<PowerWidget> {
 
   @override
   Widget build(BuildContext context) {
-    double w = getWidth(context);
-    double h = getHeight(context);
-    Future future = getRequiredPower(context, panel: widget.panel);
-
     return FutureBuilder(
-      future: future,
+      future: widget.future(context, panel: widget.panel),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
           return Text("${formatDouble(snapshot.data, 2)}");

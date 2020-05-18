@@ -1,4 +1,4 @@
-import 'package:SUNMAX/views/power_widget.dart';
+import 'package:SUNMAX/views/refreshable_power_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:SUNMAX/database/database.dart';
 import 'package:SUNMAX/helpers/utils.dart';
@@ -42,7 +42,7 @@ class _PanelWidgetState extends State<PanelWidget> {
                     SizedBox(
                       width: 30,
                     ),
-                    PowerWidget(
+                    RefreshablePowerWidget(
                       panel: _panel,
                     )
                   ],
