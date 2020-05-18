@@ -3,7 +3,6 @@ import 'package:flutter/scheduler.dart';
 import 'package:SUNMAX/model/notifiers/login_notifier.dart';
 import 'package:SUNMAX/views/login_page.dart';
 import 'package:SUNMAX/views/main_view.dart';
-import 'package:SUNMAX/views/signup_page.dart';
 import 'package:provider/provider.dart';
 
 void main() => runApp(
@@ -79,10 +78,6 @@ Route<dynamic> _getRoute(RouteSettings settings) {
           created: ((settings.arguments ?? "") as String) == "created",
         );
         break;
-//      case '/signup' :
-//        globalLoginNotifier.logOut();
-//        page = SignupPage();
-//        break;
       case '/panels' :
         page = MainPage(
           name: 'panels',
