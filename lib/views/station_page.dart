@@ -81,6 +81,27 @@ class StationPage extends StatelessWidget{
                     ],
                   ),
                   Divider(),
+                  Row(
+                    children: <Widget>[
+                      Expanded(child: Text("Запас енергії накопичувача:")),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Expanded(
+                        flex: count,
+                        child: Row(
+                          children: <Widget>[
+                            RefreshableNumberWidget(
+                              future: getAccumulatedEnergy,
+                            ),
+                            Text(" кВат * год"),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+
+                  Divider(),
 
                   Row(
                     children: <Widget>[

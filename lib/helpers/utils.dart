@@ -153,3 +153,10 @@ Future<String> getDateTime(BuildContext context) async{
 
   return formatDateTime(dt);
 }
+
+Future<double> getAccumulatedEnergy(BuildContext context, {Panel panel}) async{
+  final user = Provider.of<LoginNotifier>(context, listen: false).user;
+  final accumulator = await DBProvider.db.getAccumulator(user.id);
+
+  return accumulator.energy / 3600000;
+}
