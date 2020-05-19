@@ -39,15 +39,6 @@ class StationPage extends StatelessWidget{
             child: Container(
               child: Column(
                 children: <Widget>[
-                  TimerBuilder.periodic(
-                    refreshRate,
-                    builder: (context) => FutureBuilder(
-                      future: getDateTime(context),
-                      builder: (context1, snapshot1){
-                        return Text(snapshot1.hasData ? snapshot1.data : "");
-                      },
-                    ),
-                  ),
                   Container(
                     padding: EdgeInsets.all(10),
                     child: Text("Моя станція")

@@ -6,6 +6,7 @@ import 'package:SUNMAX/helpers/utils.dart';
 import 'package:SUNMAX/model/panel_model.dart';
 import 'package:SUNMAX/views/history_widget.dart';
 import 'package:SUNMAX/views/diagram_widget.dart';
+import 'package:timer_builder/timer_builder.dart';
 
 class PanelPage extends StatefulWidget{
   final Panel panel;
@@ -124,6 +125,46 @@ class _PanelPageState extends State<PanelPage> {
             ],
           ),
           Divider(),
+
+          TimerBuilder.periodic(
+            refreshRate,
+            builder : (context) => FutureBuilder(
+              future: getPanelInfo(context, panel: _panel),
+              builder: (context, snapshot) {
+                return Column(
+                  children: [
+                    Row(
+                      children: <Widget>[
+                        Expanded(child: Text("Азимут:")),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Expanded(
+                          flex: count,
+                          child: Text("${snapshot.data?.azimuth}"),
+                        ),
+                      ],
+                    ),
+                    Divider(),
+                    Row(
+                      children: <Widget>[
+                        Expanded(child: Text("Висота:")),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Expanded(
+                          flex: count,
+                          child: Text("${snapshot.data?.altitude}"),
+                        ),
+                      ],
+                    ),
+                    Divider(),
+                  ],
+                );
+              }
+            ),
+          ),
+
           Row(
             children: <Widget>[
               Expanded(child: Text("Статус:")),

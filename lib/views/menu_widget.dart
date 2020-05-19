@@ -27,7 +27,7 @@ class MenuWidget extends StatelessWidget{
             leading: Icon(Icons.home),
             title: Text(
               "Головна",
-              style: w > largeLimit ? bigTextStyle : normalTextStyle,
+              style: normalTextStyle,
             ),
             onTap: (){
               Navigator.of(context).pushNamed('/');
@@ -37,7 +37,7 @@ class MenuWidget extends StatelessWidget{
             leading: Icon(Icons.power),
             title: Text(
               "Мої панелі",
-              style: w > largeLimit ? bigTextStyle : normalTextStyle,
+              style: normalTextStyle,
             ),
             onTap: (){
               Navigator.of(context).pushNamed('/panels');
@@ -47,7 +47,7 @@ class MenuWidget extends StatelessWidget{
             leading: Icon(Icons.exit_to_app),
             title: Text(
               "Вихід",
-              style: w > largeLimit ? bigTextStyle : normalTextStyle,
+              style: normalTextStyle,
             ),
             onTap: (){
               Provider.of<LoginNotifier>(context, listen: false).logOut();
