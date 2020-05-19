@@ -145,3 +145,10 @@ String formatDateTime( String dateTime){
 
   return '${formatDate(date)} $time';
 }
+
+Future<String> getDateTime(BuildContext context) async{
+  final user = Provider.of<LoginNotifier>(context, listen: false).user;
+  final String dt = await DBProvider.db.getDateTime(user.id);
+
+  return formatDateTime(dt);
+}
