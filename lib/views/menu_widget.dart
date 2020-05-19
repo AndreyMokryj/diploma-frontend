@@ -34,7 +34,7 @@ class MenuWidget extends StatelessWidget{
             },
           ),
           ListTile(
-            leading: Icon(Icons.shopping_cart),
+            leading: Icon(Icons.power),
             title: Text(
               "Мої панелі",
               style: w > largeLimit ? bigTextStyle : normalTextStyle,
