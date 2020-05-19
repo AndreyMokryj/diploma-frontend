@@ -140,7 +140,7 @@ String formatDate( String date){
 String formatDateTime( String dateTime){
   final dateTimes = dateTime.split('T');
   final date = dateTimes[0];
-  final time = dateTimes[1].substring(0, 4);
+  final time = dateTimes[1].substring(0, 5);
 
 
   return '${formatDate(date)} $time';

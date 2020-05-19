@@ -82,6 +82,15 @@ class _DiagramWidgetState extends State<DiagramWidget> {
           return Column(
             children: <Widget>[
               Text("Виробіток сьогодні:"),
+              SizedBox(
+                height: 5,
+              ),
+              FutureBuilder(
+                future: getDateTime(context),
+                builder: (context1, snapshot1){
+                  return Text(snapshot1.hasData ? snapshot1.data : "");
+                },
+              ),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Container(

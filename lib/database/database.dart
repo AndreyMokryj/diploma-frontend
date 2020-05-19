@@ -196,7 +196,6 @@ class DBProvider {
       }
     );
 
-    final responseBody = jsonDecode(response.body);
-    return responseBody;
+    return response.body;
   }
 }
