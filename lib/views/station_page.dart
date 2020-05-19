@@ -3,6 +3,7 @@ import 'package:SUNMAX/helpers/utils.dart';
 import 'package:SUNMAX/views/diagram_widget.dart';
 import 'package:SUNMAX/views/history_widget.dart';
 import 'package:SUNMAX/views/refreshable_number_widget.dart';
+import 'package:SUNMAX/views/refreshable_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:SUNMAX/database/database.dart';
 import 'package:SUNMAX/model/notifiers/login_notifier.dart';
@@ -38,6 +39,14 @@ class StationPage extends StatelessWidget{
             child: Container(
               child: Column(
                 children: <Widget>[
+                  RefreshableWidget(
+                    child: FutureBuilder(
+                      future: getDateTime(context),
+                      builder: (context1, snapshot1){
+                        return Text(snapshot1.hasData ? snapshot1.data : "");
+                      },
+                    ),
+                  ),
                   Container(
                     padding: EdgeInsets.all(10),
                     child: Text("Моя станція")
