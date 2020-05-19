@@ -5,6 +5,7 @@ import 'package:SUNMAX/model/log_model.dart';
 import 'package:SUNMAX/model/notifiers/login_notifier.dart';
 import 'package:SUNMAX/model/panel_model.dart';
 import 'package:provider/provider.dart';
+import 'package:timer_builder/timer_builder.dart';
 
 double getWidth(BuildContext context) => MediaQuery.of(context).size.width;
 double getHeight(BuildContext context) => MediaQuery.of(context).size.height;

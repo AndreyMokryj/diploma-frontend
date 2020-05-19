@@ -3,7 +3,6 @@ import 'package:SUNMAX/helpers/utils.dart';
 import 'package:SUNMAX/views/diagram_widget.dart';
 import 'package:SUNMAX/views/history_widget.dart';
 import 'package:SUNMAX/views/refreshable_number_widget.dart';
-import 'package:SUNMAX/views/refreshable_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:SUNMAX/database/database.dart';
 import 'package:SUNMAX/model/notifiers/login_notifier.dart';
@@ -11,6 +10,7 @@ import 'package:SUNMAX/model/user_model.dart';
 import 'package:SUNMAX/model/accumulator_model.dart' as acc;
 import 'package:SUNMAX/views/station_widget.dart';
 import 'package:provider/provider.dart';
+import 'package:timer_builder/timer_builder.dart';
 
 class StationPage extends StatelessWidget{
   @override
@@ -39,8 +39,9 @@ class StationPage extends StatelessWidget{
             child: Container(
               child: Column(
                 children: <Widget>[
-                  RefreshableWidget(
-                    child: FutureBuilder(
+                  TimerBuilder.periodic(
+                    refreshRate,
+                    builder: (context) => FutureBuilder(
                       future: getDateTime(context),
                       builder: (context1, snapshot1){
                         return Text(snapshot1.hasData ? snapshot1.data : "");
@@ -69,6 +70,7 @@ class StationPage extends StatelessWidget{
                         flex: count,
                         child: Row(
                           children: <Widget>[
+
                             RefreshableNumberWidget(
                               future: getRequiredPower,
                             ),
