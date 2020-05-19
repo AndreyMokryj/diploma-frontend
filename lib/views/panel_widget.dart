@@ -1,9 +1,11 @@
+import 'package:SUNMAX/helpers/constants.dart';
 import 'package:SUNMAX/helpers/styles.dart';
 import 'package:SUNMAX/views/refreshable_number_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:SUNMAX/database/database.dart';
 import 'package:SUNMAX/helpers/utils.dart';
 import 'package:SUNMAX/model/panel_model.dart';
+import 'package:timer_builder/timer_builder.dart';
 
 class PanelWidget extends StatefulWidget{
   final Panel panel;
@@ -64,6 +66,19 @@ class _PanelWidgetState extends State<PanelWidget> {
                 ),
                 SizedBox(
                   height: 10,
+                ),
+
+                TimerBuilder.periodic(
+                  refreshRate,
+                  builder : (context) => FutureBuilder(
+                    future: getPanelInfo(context, panel: _panel),
+                    builder: (context, snapshot) {
+                      return Text(
+                        "Азимут: ${snapshot.data?.azimuth}, Висота: ${snapshot.data?.altitude}",
+                        style: lightTextStyle,
+                      );
+                    }
+                  ),
                 ),
                 Text(
                   _panel.model,

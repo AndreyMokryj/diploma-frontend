@@ -160,3 +160,10 @@ Future<double> getAccumulatedEnergy(BuildContext context, {Panel panel}) async{
 
   return accumulator.energy / 3600000;
 }
+
+Future<Panel> getPanelInfo(BuildContext context, {Panel panel}) async{
+  final user = Provider.of<LoginNotifier>(context, listen: false).user;
+  final panel1 = await DBProvider.db.getPanel(panel.id, user.id);
+
+  return panel1;
+}
