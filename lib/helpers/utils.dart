@@ -136,3 +136,12 @@ String formatDate( String date){
 
   return '$day $month $year';
 }
+
+String formatDateTime( String dateTime){
+  final dateTimes = dateTime.split('T');
+  final date = dateTimes[0];
+  final time = dateTimes[1].substring(0, 4);
+
+
+  return '${formatDate(date)} $time';
+}

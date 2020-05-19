@@ -187,4 +187,16 @@ class DBProvider {
     final responseBody = jsonDecode(response.body);
     return responseBody;
   }
+
+  Future<String> getDateTime(String userId) async {
+    final response = await http.get(
+      "${baseUrl}time/userId/${userId}",
+      headers: {
+        'content-type': 'application/json'
+      }
+    );
+
+    final responseBody = jsonDecode(response.body);
+    return responseBody;
+  }
 }
